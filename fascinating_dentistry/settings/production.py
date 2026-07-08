@@ -4,6 +4,8 @@ from .base import *
 
 DEBUG = False
 
+SECRET_KEY = os.environ.get("SECRET_KEY", os.environ.get("JWT_SECRET", "django-insecure-fallback-2026"))
+
 # Parse DATABASE_URL from environment (set by Coolify)
 _db_url = os.environ.get("DATABASE_URL", "")
 if _db_url:
