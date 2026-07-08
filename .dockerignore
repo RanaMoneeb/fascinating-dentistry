@@ -1,7 +1,6 @@
 .venv/
 node_modules/
 theme/node_modules/
-theme/static/css/dist/
 media/
 static/
 *.sqlite3
@@ -11,7 +10,6 @@ __pycache__/
 .git/
 .gitignore
 .env.local
-docker-compose.yml
 *.swp
 .DS_Store
 .python-version
