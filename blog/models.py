@@ -4,6 +4,7 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 
 from wagtail.fields import RichTextField
+
 from wagtail.models import Page
 from wagtail.admin.panels import FieldPanel
 from wagtail.search import index
@@ -75,7 +76,7 @@ class BlogPage(Page):
         on_delete=models.SET_NULL,
         related_name="+",
     )
-    body = models.TextField("Body (HTML)", blank=True)
+    body = RichTextField("Body", blank=True, features=["h2", "h3", "h4", "bold", "italic", "ol", "ul", "link", "image", "blockquote"])
     author_bio = models.TextField("Author Bio (HTML)", blank=True)
     author_name = models.CharField(max_length=200, blank=True)
     author_credentials = models.CharField(max_length=500, blank=True)
