@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags home_tags %}
+
+{% block content %}
+<script type="application/ld+json">{{ hp.FAQ_SCHEMA|safe }}</script>
+
+{# ---------------- Hero ---------------- #}
+<section class="relative overflow-hidden bg-gradient-to-br from-brand-green via-brand-green to-brand-blue text-white">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-white rounded-full"></div>
+        <div class="absolute -bottom-32 -left-16 w-80 h-80 bg-white rounded-full"></div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 md:py-28">
+        <div class="max-w-3xl">
+            <span class="inline-block px-4 py-1.5 bg-white/15 backdrop-blur rounded-full text-sm font-medium mb-6">Australia's independent dental resource</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">{{ hp.HERO_TITLE }}</h1>
+            <p class="text-base md:text-lg text-white/90 mb-10 leading-relaxed">{% if page.hero_subtitle %}{{ page.hero_subtitle }}{% else %}{{ hp.HERO_INTRO }}{% endif %}</p>
+            {% if page.hero_cta_link %}<a href="{% pageurl page.hero_cta_link %}" class="inline-flex items-center px-8 py-4 bg-white text-brand-green rounded-full font-bold hover:scale-105 transition-transform shadow-xl">{{ page.hero_cta_label|default:"Learn more" }}</a>{% endif %}
+        </div>
+    </div>
+</section>
+
+{# ---------------- Find a dentist ---------------- #}
+<section class="py-16 md:py-20 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-brand-green font-semibold text-sm uppercase tracking-wider">Directory</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">Where can I find a dentist in Australia?</h2>
+            <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">{{ hp.FIND_DENTIST.answer }}</p>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-6">
+            {% with loc=hp.FIND_DENTIST.location %}
+            <div class="bg-white rounded-2xl border border-slate-100 p-6">
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Browse by Location</h3>
+                <p class="text-sm text-slate-500 mb-4">{{ loc.intro }}</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for it in loc.items %}{% is_live_url it.href as live %}{% if live %}<a href="{{ it.href }}" class="inline-block rounded-full bg-slate-100 hover:bg-brand-green-light hover:text-brand-green text-slate-700 px-3 py-1.5 text-sm transition-colors">{{ it.name }}</a>{% else %}<span class="inline-block rounded-full bg-slate-50 text-slate-400 px-3 py-1.5 text-sm">{{ it.name }}</span>{% endif %}{% endfor %}
+                </div>
+                <div class="mt-4">{% is_live_url hp.FIND_DENTIST.australia_wide.href as aw %}{% if aw %}<a href="{{ hp.FIND_DENTIST.australia_wide.href }}" class="text-sm font-semibold text-brand-green">{{ hp.FIND_DENTIST.australia_wide.name }}</a>{% else %}<span class="text-sm text-slate-400">{{ hp.FIND_DENTIST.australia_wide.name }}</span>{% endif %}</div>
+            </div>
+            {% endwith %}
+            {% with svc=hp.FIND_DENTIST.service %}
+            <div class="bg-white rounded-2xl border border-slate-100 p-6">
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Browse by Service</h3>
+                <p class="text-sm text-slate-500 mb-4">{{ svc.intro }}</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for it in svc.items %}{% is_live_url it.href as live %}{% if live %}<a href="{{ it.href }}" class="inline-block rounded-full bg-slate-100 hover:bg-brand-green-light hover:text-brand-green text-slate-700 px-3 py-1.5 text-sm transition-colors">{{ it.name }}</a>{% else %}<span class="inline-block rounded-full bg-slate-50 text-slate-400 px-3 py-1.5 text-sm">{{ it.name }}</span>{% endif %}{% endfor %}
+                </div>
+            </div>
+            {% endwith %}
+            {% with t=hp.FIND_DENTIST.top10 %}
+            <div class="bg-white rounded-2xl border border-slate-100 p-6">
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Top 10 Lists by City</h3>
+                <p class="text-sm text-slate-500 mb-4">{{ t.intro }}</p>
+                <ul class="space-y-1.5">{% for it in t.items %}{% is_live_url it.href as live %}{% if live %}<li><a href="{{ it.href }}" class="text-sm text-slate-700 hover:text-brand-green transition-colors">{{ it.name }}</a></li>{% else %}<li class="text-sm text-slate-400">{{ it.name }}</li>{% endif %}{% endfor %}</ul>
+            </div>
+            {% endwith %}
+        </div>
+    </div>
+</section>
+
+{# ---------------- Services ---------------- #}
+<section class="py-16 md:py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-brand-green font-semibold text-sm uppercase tracking-wider">Services</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">What services does Fascinating Dentistry cover across Australia?</h2>
+            <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">{{ hp.SERVICES.answer }}</p>
+            <p class="text-slate-600 max-w-3xl mx-auto mt-2">You can view the <span class="text-slate-400">{{ hp.SERVICES.hub.name }}</span> for a complete overview.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for spec in hp.SERVICES.specialties %}
+            <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6">
+                <h3 class="font-bold text-slate-900 mb-1">{{ spec.name }}</h3>
+                <p class="text-xs text-slate-500 mb-4">{{ spec.desc }}</p>
+                <ul class="space-y-1.5">{% for s in spec.items %}<li class="text-sm text-slate-400">{{ s }}</li>{% endfor %}</ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ---------------- How it works ---------------- #}
+<section class="py-12 bg-gradient-to-r from-brand-green to-brand-blue text-white">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-4">How do dental services work in Australia?</h2>
+        <p class="text-white/90 leading-relaxed">{{ hp.HOW_IT_WORKS }}</p>
+    </div>
+</section>
+
+{# ---------------- Conditions ---------------- #}
+<section class="py-16 md:py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <span class="text-brand-green font-semibold text-sm uppercase tracking-wider">Conditions</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">What dental conditions are covered on this site?</h2>
+            <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">{{ hp.CONDITIONS.answer }}</p>
+            <p class="text-slate-400 text-sm mt-2">{{ hp.CONDITIONS.hub.name }}</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2.5">
+            {% for c in hp.CONDITIONS.items %}<span class="inline-block rounded-full bg-slate-50 text-slate-400 px-3.5 py-1.5 text-sm">{{ c }}</span>{% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ---------------- Costs ---------------- #}
+<section class="py-16 md:py-20 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-brand-green font-semibold text-sm uppercase tracking-wider">Costs</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">How much does dental care cost in Australia?</h2>
+            <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">{{ hp.COSTS.answer }}</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for cat in hp.COSTS.categories %}
+            <div class="bg-white rounded-2xl border border-slate-100 p-6">
+                <h3 class="font-bold text-slate-900 mb-2">{{ cat.name }}</h3>
+                <p class="text-xs text-slate-500 mb-3">{{ cat.intro }}</p>
+                <ul class="space-y-1.5 mb-3">{% for i in cat.items %}<li class="text-sm text-slate-400">{{ i }}</li>{% endfor %}</ul>
+                {% if cat.hub %}<p class="text-xs text-slate-400">{{ cat.hub.name }}</p>{% endif %}
+                {% if cat.note %}<p class="text-xs text-slate-400 mt-2">{{ cat.note }}</p>{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ---------------- Life stages ---------------- #}
+<section class="py-16 md:py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-brand-green font-semibold text-sm uppercase tracking-wider">By life stage</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">How does dental care differ by life stage in Australia?</h2>
+            <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">{{ hp.LIFE_STAGES.answer }}</p>
+            <p class="text-slate-400 text-sm mt-2">{{ hp.LIFE_STAGES.hub.name }}</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {% for l in hp.LIFE_STAGES.items %}
+            <div class="bg-slate-50 rounded-2xl border border-slate-100 p-5">
+                <span class="inline-block px-2.5 py-1 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold mb-3">{{ l.stage }}</span>
+                <h3 class="font-bold text-slate-900 mb-1 text-sm">{{ l.title }}</h3>
+                <p class="text-xs text-slate-500">{{ l.text }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ---------------- Who writes ---------------- #}
+<section class="py-16 md:py-20 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <span class="text-brand-green font-semibold text-sm uppercase tracking-wider">Editorial</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">Who writes and reviews content on Fascinating Dentistry?</h2>
+            <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">{{ hp.WHO_WRITES.answer }}</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            {% for l in hp.WHO_WRITES.links %}{% is_live_url l.href as live %}{% if live %}<a href="{{ l.href }}" class="text-sm font-semibold text-brand-green hover:underline">{{ l.name }}</a>{% else %}<span class="text-sm text-slate-400">{{ l.name }}</span>{% endif %}{% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ---------------- Why trust ---------------- #}
+<section class="py-16 md:py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-brand-green font-semibold text-sm uppercase tracking-wider">Trust</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">Why trust Fascinating Dentistry as a dental information source?</h2>
+            <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">{{ hp.WHY_TRUST.answer }}</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for p in hp.WHY_TRUST.points %}
+            <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6">
+                <h3 class="font-bold text-slate-900 mb-2">{{ p.title }}</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">{{ p.text }}</p>
+                {% if p.link %}{% is_live_url p.link.href as live %}{% if live %}<a href="{{ p.link.href }}" class="text-xs font-semibold text-brand-green hover:underline mt-2 inline-block">{{ p.link.name }}</a>{% else %}<p class="text-xs text-slate-400 mt-2">{{ p.link.name }}</p>{% endif %}{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ---------------- Statistics ---------------- #}
+<section class="py-16 md:py-20 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-brand-green font-semibold text-sm uppercase tracking-wider">Data</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">What are the key statistics on Australian dental health?</h2>
+            <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">{{ hp.STATS.answer }}</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {% for s in hp.STATS.items %}
+            <div class="bg-white rounded-2xl border border-slate-100 p-6">
+                <div class="text-4xl font-extrabold bg-gradient-to-r from-brand-green to-brand-blue bg-clip-text text-transparent mb-2">{{ s.stat }}</div>
+                <p class="text-xs font-semibold text-slate-700 mb-1">{{ s.label }}</p>
+                <p class="text-xs text-slate-500 leading-relaxed">{{ s.text }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ---------------- Organisations ---------------- #}
+<section class="py-16 md:py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-brand-green font-semibold text-sm uppercase tracking-wider">Authorities</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">Which Australian dental organisations set standards?</h2>
+            <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">{{ hp.ORGS.answer }}</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {% for o in hp.ORGS.items %}
+            <div class="bg-slate-50 rounded-2xl border border-slate-100 p-5">
+                <a href="{{ o.site }}" target="_blank" rel="noopener noreferrer" class="font-bold text-slate-900 text-sm hover:text-brand-green transition-colors">{{ o.name }}</a>
+                <p class="text-xs text-slate-500 mt-1 mb-2">{{ o.blurb }}</p>
+                {% if o.guide %}<p class="text-xs text-slate-400">{{ o.guide.name }}</p>{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ---------------- FAQ ---------------- #}
+<section class="py-16 md:py-20 bg-slate-50">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <span class="text-brand-green font-semibold text-sm uppercase tracking-wider">FAQ</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">What are the most common questions about Australian dental care?</h2>
+            <p class="text-slate-600 leading-relaxed">{{ hp.FAQ.intro }}</p>
+        </div>
+        <div class="space-y-3">
+            {% for f in hp.FAQ.items %}
+            <details class="bg-white rounded-xl border border-slate-100 px-5 py-4">
+                <summary class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 list-none [&::-webkit-details-marker]:hidden">{{ f.q }}</summary>
+                <p class="mt-3 text-sm text-slate-600 leading-relaxed">{{ f.a }}</p>
+            </details>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# ---------------- Latest articles ---------------- #}
+<section class="py-16 md:py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-brand-green font-semibold text-sm uppercase tracking-wider">Latest</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">What are the latest articles on Fascinating Dentistry?</h2>
+            <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">{{ hp.LATEST_INTRO }}</p>
+        </div>
+        {% if latest_posts %}
+        <div class="grid md:grid-cols-3 gap-8">
+            {% for post in latest_posts %}
+            <a href="{% pageurl post %}" class="group block rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all overflow-hidden border border-slate-100">
+                <div class="h-40 bg-gradient-to-br from-brand-green to-brand-blue"></div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold text-slate-900 group-hover:text-brand-green mb-2">{{ post.title }}</h3>
+                    {% if post.excerpt %}<p class="text-sm text-slate-500 line-clamp-2">{{ post.excerpt }}</p>{% endif %}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-center text-slate-400">No articles published yet.</p>
+        {% endif %}
+    </div>
+</section>
+
+{# ---------------- Newsletter ---------------- #}
+<section class="bg-gradient-to-r from-brand-green to-brand-blue text-white py-16">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-extrabold mb-4">Never miss a dental tip</h2>
+        <p class="text-white/90 mb-8">Get the latest Australian dental health insights delivered to your inbox.</p>
+        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input type="email" placeholder="Your email" class="flex-1 px-5 py-3.5 rounded-full bg-white/15 border border-white/30 text-white placeholder:text-white/60 focus:outline-none focus:border-white">
+            <button class="px-8 py-3.5 bg-white text-brand-green rounded-full font-bold hover:bg-brand-green-light transition-colors">Subscribe</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

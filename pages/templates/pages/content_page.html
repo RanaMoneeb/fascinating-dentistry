@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+{% for schema in schema_blocks %}<script type="application/ld+json">{{ schema|safe }}</script>
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+{# Header band #}
+<section class="bg-brand-dark text-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <nav class="text-sm text-white/60 mb-4">
+            <a href="/" class="hover:text-white transition-colors">Home</a>
+            <span class="mx-1.5">/</span>
+            <span class="text-white/80">{{ page.title }}</span>
+        </nav>
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">{{ page.title }}</h1>
+        {% if page.search_description %}
+        <p class="text-lg text-white/80 mt-4 max-w-2xl leading-relaxed">{{ page.search_description }}</p>
+        {% endif %}
+    </div>
+</section>
+
+{# Body + table of contents #}
+<section class="py-14 md:py-20 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[minmax(0,1fr)_16rem] gap-12">
+            <style>
+                .fd-article { counter-reset: fd-section; }
+                .fd-article h2 {
+                    position: relative; padding-left: 3rem; margin-top: 3.5rem; margin-bottom: 1rem;
+                    scroll-margin-top: 7rem;
+                }
+                .fd-article h2::before {
+                    counter-increment: fd-section; content: counter(fd-section, decimal-leading-zero);
+                    position: absolute; left: 0; top: -0.15rem;
+                    width: 2.1rem; height: 2.1rem; border-radius: 0.55rem;
+                    display: inline-flex; align-items: center; justify-content: center;
+                    background: linear-gradient(135deg, #4A9C6D, #3498DB);
+                    color: #fff; font-size: 0.85rem; font-weight: 800; line-height: 1;
+                }
+                .fd-article h2.fd-no-num { padding-left: 0; counter-increment: none; }
+                .fd-article h2.fd-no-num::before { content: none; }
+                .fd-article .lead { font-size: 1.2rem; color: #334155; font-weight: 500; }
+                .fd-article blockquote {
+                    border-left: 4px solid #4A9C6D; background: #E8F5EC;
+                    padding: 1rem 1.25rem; border-radius: 0 0.75rem 0.75rem 0;
+                    color: #1f2d24; font-style: normal;
+                }
+            </style>
+            <article class="fd-article prose prose-slate prose-lg max-w-none
+                           prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-slate-900
+                           prose-h3:mt-8 prose-h3:mb-3
+                           prose-p:leading-relaxed
+                           prose-a:text-brand-green prose-a:no-underline hover:prose-a:underline
+                           prose-strong:text-slate-900
+                           prose-li:my-1
+                           prose-table:block prose-table:overflow-x-auto prose-table:text-sm
+                           prose-thead:border-b prose-thead:border-slate-200
+                           prose-th:text-left prose-th:font-semibold prose-th:py-2 prose-th:pr-6
+                           prose-td:py-2 prose-td:pr-6 prose-td:border-slate-100">
+                {{ body_html }}
+            </article>
+
+            {% if toc %}
+            <aside class="hidden lg:block">
+                <div class="sticky top-28">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">On this page</p>
+                    <ul class="border-l border-slate-200">
+                        {% for item in toc %}
+                        <li>
+                            <a href="#{{ item.id }}" class="-ml-px block border-l border-transparent pl-4 py-1.5 text-sm text-slate-500 hover:text-brand-green hover:border-brand-green transition-colors">{{ item.text }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </aside>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{# Closing CTA #}
+<section class="bg-gradient-to-r from-brand-green to-brand-blue text-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+            <h2 class="text-2xl font-bold">Questions about this page?</h2>
+            <p class="text-white/90 mt-1">Our editorial team reviews every enquiry.</p>
+        </div>
+        <a href="/contact/" class="shrink-0 px-7 py-3.5 bg-white text-brand-green rounded-full font-bold hover:scale-105 transition-transform shadow-xl">Contact us</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags home_tags %}
+
+{% block extra_head %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"{{ page.title }}","datePublished":"{{ page.first_published_at|date:'c' }}","dateModified":"{{ page.last_published_at|date:'c' }}","description":"{{ page.excerpt }}"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://fascinatingdentistry.com/blog/"},{"@type":"ListItem","position":3,"name":"{{ page.title }}"}]}</script>
+{% endblock %}
+
+{% block content %}
+{# Header band #}
+<section class="bg-brand-dark text-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <nav class="text-sm text-white/60 mb-4">
+            <a href="/" class="hover:text-white transition-colors">Home</a> <span class="mx-1">/</span>
+            <a href="/blog/" class="hover:text-white transition-colors">Blog</a> <span class="mx-1">/</span>
+            <a href="/blog/endodontics/" class="hover:text-white transition-colors">Endodontics</a>
+        </nav>
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">{{ page.title }}</h1>
+        {% if page.excerpt %}<p class="text-lg text-white/80 mt-4 max-w-2xl leading-relaxed">{{ page.excerpt }}</p>{% endif %}
+        {% if page.first_published_at %}<p class="text-sm text-white/50 mt-4">Published {{ page.first_published_at|date:"j F Y" }}</p>{% endif %}
+    </div>
+</section>
+
+{# Body + TOC #}
+<section class="py-14 md:py-20 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[minmax(0,1fr)_16rem] gap-12">
+            <article class="fd-article prose prose-slate prose-lg max-w-none
+                           prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-slate-900
+                           prose-h3:mt-8 prose-h3:mb-3
+                           prose-p:leading-relaxed
+                           prose-a:text-brand-green prose-a:no-underline hover:prose-a:underline
+                           prose-strong:text-slate-900
+                           prose-li:my-1
+                           prose-table:block prose-table:overflow-x-auto prose-table:text-sm
+                           prose-thead:border-b prose-thead:border-slate-200
+                           prose-th:text-left prose-th:font-semibold prose-th:py-2 prose-th:pr-6
+                           prose-td:py-2 prose-td:pr-6 prose-td:border-slate-100">
+                {{ body_html }}
+            </article>
+            {% if toc %}
+            <aside class="hidden lg:block">
+                <div class="sticky top-28">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">On this page</p>
+                    <ul class="border-l border-slate-200">
+                        {% for item in toc %}
+                        <li><a href="#{{ item.id }}" class="-ml-px block border-l border-transparent pl-4 py-1.5 text-sm text-slate-500 hover:text-brand-green hover:border-brand-green transition-colors">{{ item.text }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </aside>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{# Author bio #}
+{% if page.author_bio %}
+<section class="fd-section-tight bg-slate-50">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm flex flex-col sm:flex-row gap-6">
+            {% if page.cover_image %}
+            <div class="shrink-0">
+                {% image page.cover_image fill-120x120 class="w-24 h-24 rounded-full object-cover border-4 border-brand-green/20" %}
+            </div>
+            {% else %}
+            <div class="shrink-0 w-24 h-24 rounded-full bg-gradient-to-br from-brand-green to-brand-blue flex items-center justify-center text-white text-2xl font-extrabold">
+                {{ page.author_name|slice:":1"|default:"D" }}
+            </div>
+            {% endif %}
+            <div class="flex-1">
+                <div class="mb-3">
+                    <h3 class="text-lg font-bold text-slate-900">{{ page.author_name|default:"Dr. Anthony Au" }}</h3>
+                    {% if page.author_credentials %}<p class="text-sm text-brand-green font-semibold">{{ page.author_credentials }}</p>{% endif %}
+                </div>
+                <div class="prose prose-sm prose-slate max-w-none">{{ page.author_bio|safe }}</div>
+                <div class="mt-4 flex flex-col gap-2 text-sm">
+                    <a href="/editorial-team/dr-anthony-au/" class="text-brand-green font-semibold hover:underline self-start">View full profile</a>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="https://www.linkedin.com/in/anthony-au-aa808327/" target="_blank" rel="noopener noreferrer" class="inline-block px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue/10 hover:text-brand-blue transition-colors">LinkedIn</a>
+                        <a href="https://www.instagram.com/au9011/" target="_blank" rel="noopener noreferrer" class="inline-block px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue/10 hover:text-brand-blue transition-colors">Instagram</a>
+                        <a href="https://www.e-deneducation.com/courses/dental-education-contributors/dr-anthony-au/" target="_blank" rel="noopener noreferrer" class="inline-block px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue/10 hover:text-brand-blue transition-colors">e-den Education</a>
+                        <a href="https://www.dentaledglobal.com/speakers/85-dr-anthony-au" target="_blank" rel="noopener noreferrer" class="inline-block px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-brand-blue/10 hover:text-brand-blue transition-colors">DentalEd Global</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# CTA #}
+<section class="bg-gradient-to-r from-brand-green to-brand-blue text-white py-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+            <h2 class="text-2xl font-bold">Questions about this page?</h2>
+            <p class="text-white/90 mt-1">Our editorial team reviews every enquiry.</p>
+        </div>
+        <a href="/contact/" class="shrink-0 px-7 py-3.5 bg-white text-brand-green rounded-full font-bold hover:scale-105 transition-transform shadow-xl">Contact us</a>
+    </div>
+</section>
+{% endblock %}

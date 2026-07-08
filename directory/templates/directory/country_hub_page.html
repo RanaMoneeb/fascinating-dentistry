@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags home_tags %}
+
+{% block extra_head %}
+{% for schema in hub.SCHEMAS %}<script type="application/ld+json">{{ schema|safe }}</script>
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+{# Hero #}
+<section class="fd-hero">
+    <div class="fd-hero-decor">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-white rounded-full"></div>
+        <div class="absolute -bottom-32 -left-16 w-80 h-80 bg-white rounded-full"></div>
+    </div>
+    <div class="relative fd-container py-20 md:py-24">
+        <div class="max-w-3xl">
+            <nav class="text-sm text-white/70 mb-4"><a href="/" class="hover:text-white transition-colors">Home</a> <span class="mx-1">/</span> Australia</nav>
+            <span class="inline-block px-4 py-1.5 bg-white/15 backdrop-blur rounded-full text-sm font-medium mb-6">Top 10 — Reviewed &amp; Ranked</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">{{ hub.H1 }}</h1>
+            <p class="text-base md:text-lg text-white/90 mb-8 leading-relaxed">{{ hub.META_DESC }}</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#top-10" class="fd-btn-primary">See the Top 10</a>
+                <a href="/methodology/" class="fd-btn-outline">How we rank</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# Intro #}
+<section class="fd-section-tight bg-white">
+    <div class="fd-container"><div class="fd-prose-wide space-y-4 text-slate-600 leading-relaxed">{% for para in hub.INTRO %}<p>{{ para }}</p>{% endfor %}</div></div>
+</section>
+
+{# Who are the top 10 #}
+<section class="fd-section-tight bg-slate-50">
+    <div class="fd-container"><div class="fd-prose-wide"><h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">Who are the top 10 dentists in Australia?</h2><p class="text-slate-600 leading-relaxed">{{ hub.WHO_TOP10 }}</p></div></div>
+</section>
+
+{# Top 10 — featured (1-3) #}
+<section id="top-10" class="fd-section-tight bg-white">
+    <div class="fd-container space-y-6">
+        {% for p in hub.TOP10 %}{% if p.featured %}
+        <article class="fd-card p-6 md:p-8 relative overflow-hidden">
+            <span class="absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r from-brand-green to-brand-blue"></span>
+            <div class="flex items-start gap-4 mb-5">
+                <span class="shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-brand-green to-brand-blue text-white font-extrabold flex items-center justify-center text-lg">{{ p.rank }}</span>
+                <div class="flex-1 min-w-0"><h2 class="text-xl md:text-2xl font-bold text-slate-900">{{ p.name }}</h2><p class="text-sm text-slate-500">{{ p.location }}</p></div>
+                {% if p.ahpra %}<span class="shrink-0 inline-block px-2.5 py-1 rounded-full bg-brand-green-light text-brand-green text-xs font-bold">AHPRA-Reg Verified</span>{% endif %}
+            </div>
+            <div class="prose prose-sm prose-slate max-w-none mb-5">
+                <p>{{ p.intro }}</p>
+                {% for label, text in p.sections %}<p><strong>{{ label }}:</strong> {{ text }}</p>{% endfor %}
+            </div>
+            <dl class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm mb-5">
+                <div><dt class="inline font-semibold text-slate-700">Address:</dt> <dd class="inline text-slate-600 ml-1">{{ p.address }}</dd></div>
+                <div><dt class="inline font-semibold text-slate-700">Phone:</dt> <dd class="inline text-slate-600 ml-1">{{ p.phone }}</dd></div>
+                <div><dt class="inline font-semibold text-slate-700">Website:</dt> <dd class="inline ml-1">{% if p.website %}<a href="{{ p.website }}" rel="nofollow" class="text-brand-green hover:underline">{{ p.website|domain }}</a>{% else %}<span class="text-slate-500">Contact the practice</span>{% endif %}</dd></div>
+                <div><dt class="inline font-semibold text-slate-700">Google Rating:</dt> <dd class="inline text-slate-600 ml-1">{{ p.rating }}</dd></div>
+            </dl>
+            {% if p.website %}<a href="{{ p.website }}" rel="nofollow" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-green to-brand-blue text-white rounded-full font-bold hover:scale-105 transition-transform shadow-md">Visit {{ p.name }}</a>{% endif %}
+        </article>
+        {% endif %}{% endfor %}
+    </div>
+</section>
+
+{# Top 10 — standard (4-10) #}
+<section class="fd-section-tight bg-slate-50">
+    <div class="fd-container"><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {% for p in hub.TOP10 %}{% if not p.featured %}
+        <article class="fd-card p-5 md:p-6">
+            <div class="flex items-start gap-3 mb-3">
+                <span class="shrink-0 w-9 h-9 rounded-lg bg-slate-100 text-slate-500 font-bold flex items-center justify-center">{{ p.rank }}</span>
+                <div><h3 class="text-lg font-bold text-slate-900 leading-tight">{{ p.name }}</h3><p class="text-sm text-slate-500">{{ p.location }}</p></div>
+            </div>
+            <div class="prose prose-sm prose-slate max-w-none mb-4">{% for para in p.desc %}<p>{{ para }}</p>{% endfor %}</div>
+            <dl class="text-sm space-y-1">
+                <div><dt class="inline font-semibold text-slate-700">Address:</dt> <dd class="inline text-slate-600 ml-1">{{ p.address }}</dd></div>
+                <div><dt class="inline font-semibold text-slate-700">Phone:</dt> <dd class="inline text-slate-600 ml-1">{{ p.phone }}</dd></div>
+                <div><dt class="inline font-semibold text-slate-700">Website:</dt> <dd class="inline ml-1">{% if p.website %}<a href="{{ p.website }}" rel="nofollow" class="text-brand-green hover:underline">{{ p.website|domain }}</a>{% else %}<span class="text-slate-500">Contact the practice</span>{% endif %}</dd></div>
+                <div><dt class="inline font-semibold text-slate-700">Google Rating:</dt> <dd class="inline text-slate-600 ml-1">{{ p.rating }}</dd></div>
+            </dl>
+        </article>
+        {% endif %}{% endfor %}
+    </div></div>
+</section>
+
+{# Cost #}
+<section class="fd-section-tight bg-white">
+    <div class="fd-container"><div class="fd-prose-wide">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">How much does dental care cost in Australia?</h2>
+        <div class="prose prose-slate max-w-none">{% for para in hub.COST %}<p>{{ para }}</p>{% endfor %}</div>
+    </div></div>
+</section>
+
+{# How to choose #}
+<section class="fd-section-tight bg-slate-50">
+    <div class="fd-container"><div class="fd-prose-wide">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">How to choose a dentist in Australia?</h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">{{ hub.CHOOSE_INTRO }}</p>
+        <ol class="space-y-4">
+            {% for q, a in hub.CHOOSE_CRITERIA %}
+            <li class="flex gap-4"><span class="shrink-0 w-8 h-8 rounded-full bg-brand-green text-white font-bold flex items-center justify-center text-sm">{{ forloop.counter }}</span><span class="text-slate-600 leading-relaxed"><strong class="text-slate-900">{{ q }}</strong> {{ a }}</span></li>
+            {% endfor %}
+        </ol>
+    </div></div>
+</section>
+
+{# Methodology #}
+<section class="fd-section-tight bg-white">
+    <div class="fd-container"><div class="fd-prose-wide">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">What is our methodology for ranking dentists?</h2>
+        <div class="prose prose-slate max-w-none mb-4">{% for para in hub.METHODOLOGY %}<p>{{ para }}</p>{% endfor %}</div>
+        {% is_live_url "/methodology/" as m %}{% if m %}<a href="/methodology/" class="text-brand-green font-semibold hover:underline">Read our complete methodology</a>{% else %}<span class="text-slate-400">Read our complete methodology</span>{% endif %}
+    </div></div>
+</section>
+
+{# Browse services #}
+<section class="fd-section-tight bg-slate-50">
+    <div class="fd-container">
+        <div class="fd-head"><span class="fd-eyebrow">Directory</span><h2 class="fd-h2">How do you browse all dental services across Australia?</h2><p class="fd-lede">Patients can access 42 specific dental treatments through our comprehensive directory. Each service links directly to its dedicated national page featuring treatment details, costs, and provider information.</p></div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for cat, services in hub.SERVICE_CATEGORIES %}
+            <div class="fd-card-flat p-5"><h3 class="font-bold text-slate-900 mb-3">{{ cat }}</h3><ul class="space-y-1.5">{% for name, href in services %}<li>{% is_live_url href as live %}{% if live %}<a href="{{ href }}" class="text-sm text-brand-green hover:underline">{{ name }}</a>{% else %}<span class="text-sm text-slate-400">{{ name }}</span>{% endif %}</li>{% endfor %}</ul></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# Cities #}
+<section class="fd-section-tight bg-white">
+    <div class="fd-container">
+        <div class="fd-head"><span class="fd-eyebrow">By city</span><h2 class="fd-h2">How do you find a dentist in your city?</h2><p class="fd-lede">{{ hub.CITIES_INTRO }}</p></div>
+        <div class="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+            {% for name, href in hub.CITIES %}{% is_live_url href as live %}
+            <div class="rounded-2xl p-8 {% if live %}bg-gradient-to-br from-brand-green to-brand-blue text-white shadow-lg{% else %}bg-slate-50 border border-slate-100 text-slate-400{% endif %}">{% if live %}<a href="{{ href }}"><h3 class="text-xl font-extrabold">{{ name }}</h3></a>{% else %}<h3 class="text-lg font-bold">{{ name }}</h3><p class="text-xs mt-1">Coming soon</p>{% endif %}</div>
+            {% endfor %}
+        </div>
+        <p class="text-sm text-slate-500 mt-6 max-w-3xl mx-auto text-center">{{ hub.CITIES_FUTURE }}</p>
+    </div>
+</section>
+
+{# Related guides #}
+<section class="fd-section-tight bg-slate-50">
+    <div class="fd-container">
+        <div class="fd-head"><span class="fd-eyebrow">Guides</span><h2 class="fd-h2">What related dental guides do we offer?</h2><p class="fd-lede">{{ hub.RELATED_INTRO }}</p></div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {% for name, href, blurb in hub.RELATED %}
+            <div class="fd-card p-5">{% is_live_url href as live %}{% if live %}<a href="{{ href }}" class="font-bold text-slate-900 hover:text-brand-green">{{ name }}</a>{% else %}<span class="font-bold text-slate-400">{{ name }}</span>{% endif %}<p class="text-sm text-slate-500 mt-1">{{ blurb }}</p></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# FAQ #}
+<section class="fd-section-tight bg-white">
+    <div class="fd-container"><div class="fd-prose-wide">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-6">Frequently Asked Questions</h2>
+        <div class="space-y-3">
+            {% for q, a in hub.FAQS %}
+            <details class="bg-slate-50 rounded-xl border border-slate-100 px-5 py-4">
+                <summary class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 list-none [&::-webkit-details-marker]:hidden">{{ q }}</summary>
+                <p class="mt-3 text-sm text-slate-600 leading-relaxed">{{ a }}</p>
+            </details>
+            {% endfor %}
+        </div>
+    </div></div>
+</section>
+
+{# About #}
+<section class="fd-section-tight bg-slate-50">
+    <div class="fd-container"><div class="fd-prose-wide">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">About Fascinating Dentistry</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">{{ hub.ABOUT }}</p>
+        {% is_live_url "/about/" as ab %}{% if ab %}<a href="/about/" class="text-brand-green font-semibold hover:underline">Learn more about Fascinating Dentistry</a>{% else %}<span class="text-slate-400">Learn more about Fascinating Dentistry</span>{% endif %}
+    </div></div>
+</section>
+
+{# Apply CTA #}
+<section class="bg-gradient-to-r from-brand-green to-brand-blue text-white py-14">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-extrabold mb-3">Apply to be featured</h2>
+        <p class="text-white/90 mb-8">Are you a dental practice in Australia? Apply to be featured in our directory. Contact us to submit your practice for editorial review or paid placement consideration.</p>
+        <a href="/contact/" class="fd-btn-primary">Contact us</a>
+    </div>
+</section>
+
+{# Disclosure #}
+<section class="fd-section-tight bg-white">
+    <div class="fd-container"><div class="fd-prose-wide">
+        <p class="text-sm text-slate-500 leading-relaxed">{{ hub.DISCLOSURE }} {% is_live_url "/disclosures/" as d %}{% if d %}<a href="/disclosures/" class="text-brand-green hover:underline">Read our disclosures policy for full details.</a>{% else %}<span class="text-slate-400">Read our disclosures policy for full details.</span>{% endif %}</p>
+    </div></div>
+</section>
+{% endblock %}
