@@ -1,17 +1,29 @@
 import os
+from urllib.parse import urlparse
 from .base import *
 
 DEBUG = False
 
-# Served by Coolify's proxy (Traefik) — trust the proxy headers
+# Parse DATABASE_URL from environment (set by Coolify)
+_db_url = os.environ.get("DATABASE_URL", "")
+if _db_url:
+    _parsed = urlparse(_db_url)
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": _parsed.path.lstrip("/"),
+            "USER": _parsed.username,
+            "PASSWORD": _parsed.password,
+            "HOST": _parsed.hostname,
+            "PORT": str(_parsed.port or 5432),
+        }
+    }
+
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-# ALLOWED_HOSTS from environment (comma-separated), fallback to *
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
-
-# Wagtail admin URL (for emails)
 WAGTAILADMIN_BASE_URL = os.environ.get("WAGTAILADMIN_BASE_URL", "https://fascinatingdentistry.com")
 
 STORAGES["staticfiles"]["BACKEND"] = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
