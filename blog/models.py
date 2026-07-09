@@ -16,11 +16,19 @@ class Author(models.Model):
     name = models.CharField(max_length=255)
     credentials = models.CharField(max_length=500, blank=True)
     bio = models.TextField("Bio (HTML)", blank=True)
+    profile_image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
 
     panels = [
         FieldPanel("name"),
         FieldPanel("credentials"),
         FieldPanel("bio"),
+        FieldPanel("profile_image"),
     ]
 
     class Meta:

@@ -64,7 +64,11 @@
 <section class="fd-section-tight bg-slate-50">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm flex flex-col sm:flex-row gap-6">
-            {% if page.cover_image %}
+            {% if page.author.profile_image %}
+            <div class="shrink-0">
+                {% image page.author.profile_image fill-120x120 class="w-24 h-24 rounded-full object-cover border-4 border-brand-green/20" %}
+            </div>
+            {% elif page.cover_image %}
             <div class="shrink-0">
                 {% image page.cover_image fill-120x120 class="w-24 h-24 rounded-full object-cover border-4 border-brand-green/20" %}
             </div>
