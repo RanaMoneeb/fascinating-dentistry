@@ -6,7 +6,7 @@
 {% block twitter_image %}{% if page.cover_image %}{% image page.cover_image original as cover_img2 %}<meta name="twitter:image" content="https://fascinatingdentistry.com{{ cover_img2.url }}">{% endif %}{% endblock %}
 
 {% block extra_head %}
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"{{ page.title }}","datePublished":"{{ page.first_published_at|date:'c' }}","dateModified":"{{ page.last_published_at|date:'c' }}","description":"{{ page.excerpt }}","mainEntityOfPage":"https://fascinatingdentistry.com{{ page.url }}","author":{"@type":"Person","name":"{{ page.author_name|default:'Dr. Anthony Au' }}"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"{{ page.title }}","datePublished":"{{ page.first_published_at|date:'c' }}","dateModified":"{{ page.last_published_at|date:'c' }}","description":"{{ page.excerpt }}","mainEntityOfPage":"https://fascinatingdentistry.com{{ page.url }}","author":{"@type":"Person","name":"{{ page.author.name|default:'Dr. Anthony Au' }}"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fascinatingdentistry.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://fascinatingdentistry.com/blog/"},{"@type":"ListItem","position":3,"name":"{{ page.title }}","item":"https://fascinatingdentistry.com{{ page.url }}"}]}</script>
 {% endblock %}
 
@@ -59,7 +59,7 @@
 </section>
 
 {# Author bio #}
-{% if page.author_bio %}
+{% if page.author %}
 <section class="fd-section-tight bg-slate-50">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm flex flex-col sm:flex-row gap-6">
@@ -69,15 +69,15 @@
             </div>
             {% else %}
             <div class="shrink-0 w-24 h-24 rounded-full bg-gradient-to-br from-brand-green to-brand-blue flex items-center justify-center text-white text-2xl font-extrabold">
-                {{ page.author_name|slice:":1"|default:"D" }}
+                {{ page.author.name|slice:":1"|default:"D" }}
             </div>
             {% endif %}
             <div class="flex-1">
                 <div class="mb-3">
-                    <h3 class="text-lg font-bold text-slate-900">{{ page.author_name|default:"Dr. Anthony Au" }}</h3>
-                    {% if page.author_credentials %}<p class="text-sm text-brand-green font-semibold">{{ page.author_credentials }}</p>{% endif %}
+                    <h3 class="text-lg font-bold text-slate-900">{{ page.author.name }}</h3>
+                    {% if page.author.credentials %}<p class="text-sm text-brand-green font-semibold">{{ page.author.credentials }}</p>{% endif %}
                 </div>
-                <div class="prose prose-sm prose-slate max-w-none">{{ page.author_bio|safe }}</div>
+                <div class="prose prose-sm prose-slate max-w-none">{{ page.author.bio|safe }}</div>
                 <div class="mt-4 flex flex-col gap-2 text-sm">
                     <a href="/editorial-team/dr-anthony-au/" class="text-brand-green font-semibold hover:underline self-start">View full profile</a>
                     <div class="flex flex-wrap gap-2">

@@ -12,6 +12,26 @@ from wagtail.snippets.models import register_snippet
 
 
 @register_snippet
+class Author(models.Model):
+    name = models.CharField(max_length=255)
+    credentials = models.CharField(max_length=500, blank=True)
+    bio = models.TextField("Bio (HTML)", blank=True)
+
+    panels = [
+        FieldPanel("name"),
+        FieldPanel("credentials"),
+        FieldPanel("bio"),
+    ]
+
+    class Meta:
+        verbose_name_plural = "authors"
+        ordering = ["name"]
+
+    def __str__(self):
+        return f"{self.name}{' - ' + self.credentials if self.credentials else ''}"
+
+
+@register_snippet
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=255, unique=True)
@@ -20,6 +40,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "categories"
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
@@ -76,10 +97,18 @@ class BlogPage(Page):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    author = models.ForeignKey(
+        "blog.Author",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="blog_posts",
+    )
     body = RichTextField("Body", blank=True, features=["h2", "h3", "h4", "bold", "italic", "ol", "ul", "link", "image", "blockquote"])
-    author_bio = models.TextField("Author Bio (HTML)", blank=True)
-    author_name = models.CharField(max_length=200, blank=True)
-    author_credentials = models.CharField(max_length=500, blank=True)
+    # Deprecated fields - kept for backward compatibility
+    author_name = models.CharField(max_length=200, blank=True, editable=False)
+    author_credentials = models.CharField(max_length=500, blank=True, editable=False)
+    author_bio = models.TextField("Author Bio (HTML)", blank=True, editable=False)
     categories = ParentalManyToManyField("blog.Category", blank=True)
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
 
@@ -91,10 +120,8 @@ class BlogPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel("excerpt"),
         FieldPanel("cover_image"),
+        FieldPanel("author"),
         FieldPanel("body", classname="full"),
-        FieldPanel("author_name"),
-        FieldPanel("author_credentials"),
-        FieldPanel("author_bio", classname="full"),
         FieldPanel("categories"),
         FieldPanel("tags"),
     ]
