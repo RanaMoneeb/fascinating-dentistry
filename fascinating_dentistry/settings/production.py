@@ -30,6 +30,10 @@ WAGTAILADMIN_BASE_URL = os.environ.get("WAGTAILADMIN_BASE_URL", "https://fascina
 
 STORAGES["staticfiles"]["BACKEND"] = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+# Configure Whitenoise to serve media files as well
+# In production, media files (uploaded images/documents) need to be accessible
+WHITENOISE_MEDIA = True
+
 try:
     from .local import *
 except ImportError:
