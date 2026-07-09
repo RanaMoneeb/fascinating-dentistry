@@ -8,6 +8,7 @@
 {% block extra_head %}
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"{{ page.title }}","datePublished":"{{ page.first_published_at|date:'c' }}","dateModified":"{{ page.last_published_at|date:'c' }}","description":"{{ page.excerpt }}","mainEntityOfPage":"https://fascinatingdentistry.com{{ page.url }}","author":{"@type":"Person","name":"{{ page.author.name|default:'Dr. Anthony Au' }}"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fascinatingdentistry.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://fascinatingdentistry.com/blog/"},{"@type":"ListItem","position":3,"name":"{{ page.title }}","item":"https://fascinatingdentistry.com{{ page.url }}"}]}</script>
+{% if page.schema_json %}<script type="application/ld+json">{{ page.schema_json|safe }}</script>{% endif %}
 {% endblock %}
 
 {% block content %}

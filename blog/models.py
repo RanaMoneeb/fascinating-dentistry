@@ -105,6 +105,7 @@ class BlogPage(Page):
         related_name="blog_posts",
     )
     body = RichTextField("Body", blank=True, features=["h2", "h3", "h4", "bold", "italic", "ol", "ul", "link", "image", "blockquote"])
+    schema_json = models.TextField("Schema.org JSON-LD", blank=True)
     # Deprecated fields - kept for backward compatibility
     author_name = models.CharField(max_length=200, blank=True, editable=False)
     author_credentials = models.CharField(max_length=500, blank=True, editable=False)
