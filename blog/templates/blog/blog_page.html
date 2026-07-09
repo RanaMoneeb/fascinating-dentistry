@@ -68,10 +68,6 @@
             <div class="shrink-0">
                 {% image page.author.profile_image fill-120x120 class="w-24 h-24 rounded-full object-cover border-4 border-brand-green/20" %}
             </div>
-            {% elif page.cover_image %}
-            <div class="shrink-0">
-                {% image page.cover_image fill-120x120 class="w-24 h-24 rounded-full object-cover border-4 border-brand-green/20" %}
-            </div>
             {% else %}
             <div class="shrink-0 w-24 h-24 rounded-full bg-gradient-to-br from-brand-green to-brand-blue flex items-center justify-center text-white text-2xl font-extrabold">
                 {{ page.author.name|slice:":1"|default:"D" }}
