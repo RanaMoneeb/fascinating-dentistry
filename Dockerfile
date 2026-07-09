@@ -69,6 +69,12 @@ RUN chown wagtail:wagtail /app
 # Copy the source code of the project into the container.
 COPY --chown=wagtail:wagtail . .
 
+# Create the media directory owned by the wagtail user. It is excluded
+# from the build by .dockerignore; in production it is mounted as a
+# persistent volume (so uploads survive redeploys). Creating it here,
+# owned by wagtail, ensures the mounted volume is writable by the app.
+RUN mkdir -p /app/media && chown -R wagtail:wagtail /app/media
+
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
 
