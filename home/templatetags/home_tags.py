@@ -51,6 +51,14 @@ def process_body(html):
         return {"html": mark_safe(html or ""), "toc": []}
 
     soup = BeautifulSoup(html or "", "html.parser")
+
+    # The page title is rendered as the sole <h1> by the template, so a
+    # leading <h1> in imported body content is a duplicate. Drop the first
+    # one so the page never has two H1s.
+    first_h1 = soup.find("h1")
+    if first_h1 is not None:
+        first_h1.decompose()
+
     live = _live_relative_paths()
 
     for anchor in soup.find_all("a", href=True):
