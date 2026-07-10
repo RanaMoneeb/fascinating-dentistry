@@ -59,7 +59,11 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {% for post in posts %}
             <a href="{% pageurl post %}" class="group block rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all overflow-hidden border border-slate-100">
+                {% if post.cover_image %}
+                {% image post.cover_image fill-800x400 class="h-40 w-full object-cover" %}
+                {% else %}
                 <div class="h-40 bg-gradient-to-br from-brand-green to-brand-blue"></div>
+                {% endif %}
                 <div class="p-6">
                     <h3 class="text-lg font-bold text-slate-900 group-hover:text-brand-green mb-2">{{ post.title }}</h3>
                     {% if post.excerpt %}<p class="text-sm text-slate-500 line-clamp-2">{{ post.excerpt }}</p>{% endif %}
