@@ -33,6 +33,23 @@ class ContentPage(Page):
         return context
 
 
+class ContactSubmission(models.Model):
+    """Stores contact-form submissions so messages are captured even
+    before SMTP/email is configured (viewable in the Wagtail admin)."""
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.name} — {self.subject}"
+
+
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=100, label="Your name")
     email = forms.EmailField(label="Your email")
@@ -55,10 +72,19 @@ class ContactPage(Page):
         if request.method == "POST":
             form = ContactForm(request.POST)
             if form.is_valid():
+                data = form.cleaned_data
+                # Persist the submission so it is never lost, even when
+                # SMTP/email is not yet configured.
+                ContactSubmission.objects.create(
+                    name=data["name"],
+                    email=data["email"],
+                    subject=data["subject"],
+                    message=data["message"],
+                )
                 send_mail(
-                    form.cleaned_data["subject"],
-                    f"From: {form.cleaned_data['name']} <{form.cleaned_data['email']}>\n\n{form.cleaned_data['message']}",
-                    form.cleaned_data["email"],
+                    data["subject"],
+                    f"From: {data['name']} <{data['email']}>\n\n{data['message']}",
+                    data["email"],
                     ["info@fascinatingdentistry.com"],
                     fail_silently=True,
                 )

@@ -8,7 +8,7 @@ from django.core.cache import cache
 from django.core.management.base import BaseCommand
 from wagtail.models import Page, Site
 
-from pages.models import ContentPage
+from pages.models import ContactPage, ContentPage
 
 DOMAIN_RE = re.compile(r"https?://(?:www\.)?fascinatingdentistry\.com")
 
@@ -81,13 +81,18 @@ class Command(BaseCommand):
                     break
                 parent = child.specific
 
-            existing = ContentPage.objects.child_of(parent).filter(slug=leaf).first()
+            # The contact page uses ContactPage (renders the contact form);
+            # all other content pages use ContentPage.
+            model = ContactPage if leaf == "contact" else ContentPage
+
+            existing = model.objects.child_of(parent).filter(slug=leaf).first()
             if existing is None:
-                page = ContentPage(
+                page = model(
                     title=h1, slug=leaf, body=html,
                     seo_title=seo_title, search_description=meta_desc,
-                    schema_json=json.dumps(schemas),
                 )
+                if model is ContentPage:
+                    page.schema_json = json.dumps(schemas)
                 parent.add_child(instance=page)
                 self.stdout.write(self.style.SUCCESS(f"created  /{slug_full.strip('/')}/   ({fname})"))
             else:
@@ -95,7 +100,8 @@ class Command(BaseCommand):
                 existing.body = html
                 existing.seo_title = seo_title
                 existing.search_description = meta_desc
-                existing.schema_json = json.dumps(schemas)
+                if model is ContentPage:
+                    existing.schema_json = json.dumps(schemas)
                 page = existing
                 self.stdout.write(self.style.SUCCESS(f"updated  /{slug_full.strip('/')}/   ({fname})"))
 
