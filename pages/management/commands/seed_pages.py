@@ -61,9 +61,15 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         home = Site.objects.first().root_page
         content_dir = settings.BASE_DIR / "content"
+        # Only process numbered content-page files (02-13, and future 14+).
+        # This excludes:
+        #   01-*        (homepage, australia hub — seeded elsewhere)
+        #   blog-*      (blog hub/posts — wrong model for ContentPage)
+        #   *.markdown  (blog-hub.markdown — wrong extension)
+        #   strategic-plan.md (internal doc, no Slug line → would crash load_md)
         files = sorted(
             f for f in os.listdir(content_dir)
-            if f.endswith(".md") and not f.startswith("01-")
+            if f.endswith(".md") and re.match(r"^\d{2}-", f) and not f.startswith("01-")
         )
 
         for fname in files:

@@ -63,6 +63,11 @@ class Command(BaseCommand):
             blog_index = BlogIndexPage(title="Blog", slug="blog")
             home.add_child(instance=blog_index)
         blog_index.intro = "<p>Explore our collection of dental health articles, tips, and guides.</p>"
+        blog_index.seo_title = "Dental Blog Australia: Evidence-Based Dental Health Guides"
+        blog_index.search_description = (
+            "Australia's evidence-based dental blog. 1,000+ medically reviewed articles "
+            "across 28 clusters covering conditions, treatments, costs, and clinical knowledge."
+        )
         blog_index.save_revision().publish()
         self.stdout.write(self.style.SUCCESS("Blog index ready"))
 
