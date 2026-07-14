@@ -91,6 +91,17 @@ class Command(BaseCommand):
             # all other content pages use ContentPage.
             model = ContactPage if leaf == "contact" else ContentPage
 
+            # If a page already exists at this slug under the parent but as a
+            # DIFFERENT model (e.g. an emergency-dentist page converted from
+            # ContentPage to a directory.ServiceListiclePage), skip it — otherwise
+            # we would create a competing ContentPage and collide on the slug.
+            existing_any = Page.objects.child_of(parent).filter(slug=leaf).first()
+            if existing_any is not None and existing_any.specific.__class__ is not model:
+                self.stdout.write(self.style.WARNING(
+                    f"  skipped  /{slug_full.strip('/')}/   ({fname}) — "
+                    f"exists as {existing_any.specific.__class__.__name__}, not {model.__name__}"))
+                continue
+
             existing = model.objects.child_of(parent).filter(slug=leaf).first()
             if existing is None:
                 page = model(
