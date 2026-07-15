@@ -73,7 +73,7 @@
             <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6">
                 <h3 class="font-bold text-slate-900 mb-1">{{ spec.name }}</h3>
                 <p class="text-xs text-slate-500 mb-4">{{ spec.desc }}</p>
-                <ul class="space-y-1.5">{% for s in spec.items %}<li class="text-sm text-slate-400">{{ s }}</li>{% endfor %}</ul>
+                <ul class="space-y-1.5">{% for s in spec.items %}{% is_live_url s.href as live %}{% if live %}<li><a href="{{ s.href }}" class="text-sm text-slate-700 hover:text-brand-green transition-colors">{{ s.name }}</a></li>{% else %}<li class="text-sm text-slate-400">{{ s.name }}</li>{% endif %}{% endfor %}</ul>
             </div>
             {% endfor %}
         </div>
@@ -98,7 +98,7 @@
             <p class="text-slate-400 text-sm mt-2">{{ hp.CONDITIONS.hub.name }}</p>
         </div>
         <div class="flex flex-wrap justify-center gap-2.5">
-            {% for c in hp.CONDITIONS.items %}<span class="inline-block rounded-full bg-slate-50 text-slate-400 px-3.5 py-1.5 text-sm">{{ c }}</span>{% endfor %}
+            {% for c in hp.CONDITIONS.items %}{% is_live_url c.href as live %}{% if live %}<a href="{{ c.href }}" class="inline-block rounded-full bg-slate-100 hover:bg-brand-green-light hover:text-brand-green text-slate-700 px-3.5 py-1.5 text-sm transition-colors">{{ c.name }}</a>{% else %}<span class="inline-block rounded-full bg-slate-50 text-slate-400 px-3.5 py-1.5 text-sm">{{ c.name }}</span>{% endif %}{% endfor %}
         </div>
     </div>
 </section>
@@ -116,7 +116,7 @@
             <div class="bg-white rounded-2xl border border-slate-100 p-6">
                 <h3 class="font-bold text-slate-900 mb-2">{{ cat.name }}</h3>
                 <p class="text-xs text-slate-500 mb-3">{{ cat.intro }}</p>
-                <ul class="space-y-1.5 mb-3">{% for i in cat.items %}<li class="text-sm text-slate-400">{{ i }}</li>{% endfor %}</ul>
+                <ul class="space-y-1.5 mb-3">{% for i in cat.items %}{% is_live_url i.href as live %}{% if live %}<li><a href="{{ i.href }}" class="text-sm text-slate-700 hover:text-brand-green transition-colors">{{ i.name }}</a></li>{% else %}<li class="text-sm text-slate-400">{{ i.name }}</li>{% endif %}{% endfor %}</ul>
                 {% if cat.hub %}<p class="text-xs text-slate-400">{{ cat.hub.name }}</p>{% endif %}
                 {% if cat.note %}<p class="text-xs text-slate-400 mt-2">{{ cat.note }}</p>{% endif %}
             </div>
@@ -135,10 +135,10 @@
             <p class="text-slate-400 text-sm mt-2">{{ hp.LIFE_STAGES.hub.name }}</p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {% for l in hp.LIFE_STAGES.items %}
+            {% for l in hp.LIFE_STAGES.items %}{% is_live_url l.href as live %}
             <div class="bg-slate-50 rounded-2xl border border-slate-100 p-5">
                 <span class="inline-block px-2.5 py-1 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold mb-3">{{ l.stage }}</span>
-                <h3 class="font-bold text-slate-900 mb-1 text-sm">{{ l.title }}</h3>
+                <h3 class="font-bold text-slate-900 mb-1 text-sm">{% if live %}<a href="{{ l.href }}" class="hover:text-brand-green transition-colors">{{ l.title }}</a>{% else %}{{ l.title }}{% endif %}</h3>
                 <p class="text-xs text-slate-500">{{ l.text }}</p>
             </div>
             {% endfor %}
@@ -213,7 +213,7 @@
             <div class="bg-slate-50 rounded-2xl border border-slate-100 p-5">
                 <a href="{{ o.site }}" target="_blank" rel="noopener noreferrer" class="font-bold text-slate-900 text-sm hover:text-brand-green transition-colors">{{ o.name }}</a>
                 <p class="text-xs text-slate-500 mt-1 mb-2">{{ o.blurb }}</p>
-                {% if o.guide %}<p class="text-xs text-slate-400">{{ o.guide.name }}</p>{% endif %}
+                {% if o.guide %}{% is_live_url o.guide.href as live %}{% if live %}<a href="{{ o.guide.href }}" class="text-xs font-semibold text-brand-green hover:underline">{{ o.guide.name }}</a>{% else %}<p class="text-xs text-slate-400">{{ o.guide.name }}</p>{% endif %}{% endif %}
             </div>
             {% endfor %}
         </div>
