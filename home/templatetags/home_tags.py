@@ -121,6 +121,13 @@ def live_links(html):
 
 
 @register.filter
+def tel(value):
+    """Return a tel:-safe phone string (digits and leading '+' only), for
+    click-to-call links on urgent-care pages."""
+    return "".join(c for c in (value or "") if c.isdigit() or c == "+")
+
+
+@register.filter
 def domain(url):
     """Return the host of a URL without the leading 'www.' (for display)."""
     if not url:

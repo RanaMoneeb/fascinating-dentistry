@@ -34,8 +34,9 @@ WHEN_LIST = [
     "Post-surgical infections",
     "Sports trauma affecting the mouth",
 ]
+WHEN_ALERT = "Facial swelling affecting your breathing, a high fever with dental pain, uncontrolled bleeding, or facial bone fractures are hospital emergencies — go to your nearest hospital emergency department, not a dentist."
 WHEN_AFTER = [
-    'Patients with facial swelling affecting breathing, high fever combined with dental pain, uncontrolled bleeding, or facial bone fractures should go to a hospital emergency department instead. Read our <a href="/blog/conditions/">dental conditions guide</a> and <a href="/blog/treatments/">dental treatment guides</a> to identify specific oral health issues.',
+    'Read our <a href="/blog/conditions/">dental conditions guide</a> and <a href="/blog/treatments/">dental treatment guides</a> to identify specific oral health issues.',
 ]
 
 WHO_TOP10 = "These 10 practices represent the best emergency dental care across Sydney, Melbourne, Brisbane, the Gold Coast, and regional Australia. Each entry includes verified contact details, pricing tier, Google rating, and availability information sourced directly from practice websites in July 2026."
@@ -130,10 +131,10 @@ COST = [
     "Emergency dental care costs in Australia range from <strong>$100 to $250 for an initial consultation</strong>. After-hours and weekend surcharges add $50 to $150 to the total bill.",
     "Specific emergency procedures carry distinct price points:",
 ]
-COST_LIST = [
-    "Emergency tooth extraction: $200 to $400",
-    "Broken tooth filling: $150 to $350",
-    "Root canal on an emergency basis: $800 to $1,500 per tooth",
+COST_PRICES = [
+    ("Emergency tooth extraction", "$200 – $400"),
+    ("Broken tooth filling", "$150 – $350"),
+    ("Root canal (emergency)", "$800 – $1,500 / tooth"),
 ]
 COST_AFTER = [
     "Medicare does not cover adult emergency dental care. The Child Dental Benefits Schedule (CDBS) covers up to $1,095 over two years for eligible children. Patients should verify their private health fund coverage before treatment. Review our <a href=\"/blog/costs/\">dental costs guide</a> for detailed pricing across all emergency procedures.",
