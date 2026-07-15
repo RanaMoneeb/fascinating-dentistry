@@ -47,11 +47,11 @@
         <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">{{ s.WHEN_HEADING }}</h2>
         <div class="prose prose-slate max-w-none space-y-4">{% for para in s.WHEN %}<p>{{ para|live_links }}</p>{% endfor %}</div>
         {% if s.WHEN_LIST %}
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 my-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 my-6">
             {% for item in s.WHEN_LIST %}
-            <div class="fd-card-flat p-4 flex items-start gap-3 bg-white">
+            <div class="fd-card-flat p-5 flex items-start gap-3 bg-white">
                 <span class="shrink-0 w-8 h-8 rounded-lg bg-brand-green-light text-brand-green font-bold flex items-center justify-center text-sm">{{ forloop.counter }}</span>
-                <span class="text-sm font-medium text-slate-700 leading-snug">{{ item }}</span>
+                <span class="text-sm font-medium text-slate-700">{{ item }}</span>
             </div>
             {% endfor %}
         </div>
@@ -131,10 +131,10 @@
         <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">{{ s.COST_HEADING }}</h2>
         <div class="prose prose-slate max-w-none space-y-4">{% for para in s.COST %}<p>{{ para|live_links }}</p>{% endfor %}</div>
         {% if s.COST_PRICES %}
-        <div class="grid sm:grid-cols-3 gap-4 my-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 my-6">
             {% for label, price in s.COST_PRICES %}
-            <div class="fd-card p-6 text-center">
-                <p class="text-2xl md:text-3xl font-extrabold text-brand-green">{{ price }}</p>
+            <div class="fd-card-flat p-5 text-center">
+                <p class="text-xl font-bold text-brand-green">{{ price }}</p>
                 <p class="text-sm text-slate-500 mt-2">{{ label }}</p>
             </div>
             {% endfor %}
