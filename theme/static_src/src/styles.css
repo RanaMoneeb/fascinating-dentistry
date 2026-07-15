@@ -12,6 +12,23 @@
   color: #3498DB;
 }
 
+/* Links outside .prose (intro sections, FAQ answers, etc.) */
+.fd-link {
+  color: #4A9C6D;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.fd-link:hover {
+  color: #3498DB;
+}
+
+/* Dead internal links — muted gray, not clickable */
+.fd-link-pending {
+  color: #94a3b8;
+  text-decoration: none;
+  cursor: default;
+}
+
 /* ============================================================
    Fascinating Dentistry — global design system.
    Every page uses these classes so layout is consistent.

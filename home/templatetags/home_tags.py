@@ -63,8 +63,21 @@ def process_body(html):
 
     for anchor in soup.find_all("a", href=True):
         href = anchor["href"]
-        if not _is_external(href) and _relative(href) not in live:
-            anchor.unwrap()
+        if _is_external(href):
+            continue
+        if _relative(href) in live:
+            existing = anchor.get("class", [])
+            if isinstance(existing, str):
+                existing = existing.split()
+            if "fd-link" not in existing:
+                anchor["class"] = existing + ["fd-link"]
+        else:
+            anchor.name = "span"
+            del anchor["href"]
+            existing = anchor.get("class", [])
+            if isinstance(existing, str):
+                existing = existing.split()
+            anchor["class"] = existing + ["fd-link-pending"]
 
     toc = []
     seen = set()
@@ -103,10 +116,11 @@ def live_html(html):
 
 @register.filter
 def live_links(html):
-    """Neutralise dead internal links in an HTML fragment: unwrap <a> anchors
-    whose target isn't live, keep external + live internal links. Used for rich
-    paragraph/answer strings on designed pages (does NOT add TOC/lead/h2 ids the
-    way process_body does)."""
+    """Style internal links in an HTML fragment based on whether the target
+    page is live. Live links get class 'fd-link' (brand green). Dead internal
+    links are converted to <span class="fd-link-pending"> (muted gray, not
+    clickable) so the text stays readable but clearly isn't a working link yet.
+    External links are left untouched."""
     try:
         from bs4 import BeautifulSoup
     except Exception:
@@ -115,8 +129,19 @@ def live_links(html):
     live = _live_relative_paths()
     for anchor in soup.find_all("a", href=True):
         href = anchor["href"]
-        if not _is_external(href) and _relative(href) not in live:
-            anchor.unwrap()
+        if _is_external(href):
+            continue  # leave external links as-is
+        if _relative(href) in live:
+            # Live internal link — add brand-green class
+            existing = anchor.get("class", [])
+            if "fd-link" not in existing:
+                anchor["class"] = existing + ["fd-link"]
+        else:
+            # Dead internal link — convert to muted span
+            anchor.name = "span"
+            del anchor["href"]
+            existing = anchor.get("class", [])
+            anchor["class"] = existing + ["fd-link-pending"]
     return mark_safe(str(soup))
 
 
