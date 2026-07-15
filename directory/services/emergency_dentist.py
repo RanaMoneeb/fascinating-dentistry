@@ -1,5 +1,5 @@
 """Content for /australia/emergency-dentist/ — Top 10 Emergency Dentists in Australia.
-Transcribed verbatim from content/02-australia-emergency-dentist.md (updated July 2026).
+Transcribed from Google Doc (July 2026).
 
 Interface contract (shared by all directory.services.* modules, rendered by
 directory/templates/directory/service_listicle_page.html):
@@ -34,7 +34,7 @@ WHEN_LIST = [
     "Post-surgical infections",
     "Sports trauma affecting the mouth",
 ]
-WHEN_ALERT = "Facial swelling affecting your breathing, a high fever with dental pain, uncontrolled bleeding, or facial bone fractures are hospital emergencies — go to your nearest hospital emergency department, not a dentist."
+WHEN_ALERT = "Patients with facial swelling affecting breathing, high fever combined with dental pain, uncontrolled bleeding, or facial bone fractures should go to a hospital emergency department instead."
 WHEN_AFTER = [
     'Read our <a href="/blog/conditions/">dental conditions guide</a> and <a href="/blog/treatments/">dental treatment guides</a> to identify specific oral health issues.',
 ]
@@ -184,7 +184,7 @@ FAQS = [
 ]
 
 CTA_TITLE = "Are you an emergency dentist in Australia?"
-CTA_TEXT = "Apply to be featured in our directory."
+CTA_TEXT = "Apply to be featured."
 
 DISCLOSURE = "Practices in positions 1 to 3 are paid placements with do-follow links. Practices in positions 4 to 10 are listed editorially with no-follow links. Paid placement never affects positions 4 to 10."
 
