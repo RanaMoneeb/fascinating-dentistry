@@ -164,7 +164,7 @@ METHODOLOGY_CRITERIA = [
     "Accreditation: QIP or other independent practice accreditation demonstrating adherence to Australian dental standards.",
 ]
 METHODOLOGY_AFTER = [
-    'Paid placements in positions 1 to 3 met all 8 criteria before being offered featured placement. Editorial selections in positions 4 to 10 met a minimum of 6 of 8 criteria. Read the full <a href="/methodology/">our methodology</a> page for detailed scoring weights and evaluation dates.',
+    'Paid placements in positions 1 to 3 met all 8 criteria before being offered featured placement. Editorial selections in positions 4 to 10 met a minimum of 6 of 8 criteria. Read our full <a href="/methodology/">methodology page</a> for detailed scoring weights and evaluation dates.',
 ]
 
 FAQ_HEADING = "Frequently Asked Questions"

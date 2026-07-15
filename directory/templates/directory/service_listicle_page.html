@@ -165,7 +165,6 @@
         <div class="prose prose-slate max-w-none mb-4 space-y-4">{% for para in s.METHODOLOGY %}<p>{{ para|live_links }}</p>{% endfor %}</div>
         {% if s.METHODOLOGY_CRITERIA %}<ol class="space-y-2 mb-4 list-decimal pl-5 text-slate-600">{% for c in s.METHODOLOGY_CRITERIA %}<li>{{ c }}</li>{% endfor %}</ol>{% endif %}
         {% if s.METHODOLOGY_AFTER %}<div class="prose prose-slate max-w-none space-y-4">{% for para in s.METHODOLOGY_AFTER %}<p>{{ para|live_links }}</p>{% endfor %}</div>{% endif %}
-        {% is_live_url "/methodology/" as m %}{% if m %}<a href="/methodology/" class="text-brand-green font-semibold hover:underline">Read our complete methodology</a>{% else %}<span class="text-slate-400">Read our complete methodology</span>{% endif %}
     </div></div>
 </section>
 

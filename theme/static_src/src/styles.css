@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prose link styling — brand green so content links match the site design */
+.prose a {
+  color: #4A9C6D;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.prose a:hover {
+  color: #3498DB;
+}
+
 /* ============================================================
    Fascinating Dentistry — global design system.
    Every page uses these classes so layout is consistent.
