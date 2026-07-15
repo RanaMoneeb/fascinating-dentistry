@@ -29,7 +29,7 @@
 
 {# Intro #}
 <section class="fd-section-tight bg-white">
-    <div class="fd-container"><div class="fd-prose-wide space-y-4 text-slate-600 leading-relaxed">{% for para in hub.INTRO %}<p>{{ para }}</p>{% endfor %}</div></div>
+    <div class="fd-container"><div class="fd-prose-wide space-y-4 text-slate-600 leading-relaxed">{% for para in hub.INTRO %}<p>{{ para|live_links }}</p>{% endfor %}</div></div>
 </section>
 
 {# Who are the top 10 #}
@@ -89,7 +89,7 @@
 <section class="fd-section-tight bg-white">
     <div class="fd-container"><div class="fd-prose-wide">
         <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">How much does dental care cost in Australia?</h2>
-        <div class="prose prose-slate max-w-none">{% for para in hub.COST %}<p>{{ para }}</p>{% endfor %}</div>
+        <div class="prose prose-slate max-w-none">{% for para in hub.COST %}<p>{{ para|live_links }}</p>{% endfor %}</div>
     </div></div>
 </section>
 
@@ -100,7 +100,7 @@
         <p class="text-slate-600 mb-6 leading-relaxed">{{ hub.CHOOSE_INTRO }}</p>
         <ol class="space-y-4">
             {% for q, a in hub.CHOOSE_CRITERIA %}
-            <li class="flex gap-4"><span class="shrink-0 w-8 h-8 rounded-full bg-brand-green text-white font-bold flex items-center justify-center text-sm">{{ forloop.counter }}</span><span class="text-slate-600 leading-relaxed"><strong class="text-slate-900">{{ q }}</strong> {{ a }}</span></li>
+            <li class="flex gap-4"><span class="shrink-0 w-8 h-8 rounded-full bg-brand-green text-white font-bold flex items-center justify-center text-sm">{{ forloop.counter }}</span><span class="text-slate-600 leading-relaxed"><strong class="text-slate-900">{{ q }}</strong> {{ a|live_links }}</span></li>
             {% endfor %}
         </ol>
     </div></div>
@@ -110,7 +110,7 @@
 <section class="fd-section-tight bg-white">
     <div class="fd-container"><div class="fd-prose-wide">
         <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">What is our methodology for ranking dentists?</h2>
-        <div class="prose prose-slate max-w-none mb-4">{% for para in hub.METHODOLOGY %}<p>{{ para }}</p>{% endfor %}</div>
+        <div class="prose prose-slate max-w-none mb-4">{% for para in hub.METHODOLOGY %}<p>{{ para|live_links }}</p>{% endfor %}</div>
         {% is_live_url "/methodology/" as m %}{% if m %}<a href="/methodology/" class="text-brand-green font-semibold hover:underline">Read our complete methodology</a>{% else %}<span class="text-slate-400">Read our complete methodology</span>{% endif %}
     </div></div>
 </section>
@@ -160,7 +160,7 @@
             {% for q, a in hub.FAQS %}
             <details class="bg-slate-50 rounded-xl border border-slate-100 px-5 py-4">
                 <summary class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 list-none [&::-webkit-details-marker]:hidden">{{ q }}</summary>
-                <p class="mt-3 text-sm text-slate-600 leading-relaxed">{{ a }}</p>
+                <p class="mt-3 text-sm text-slate-600 leading-relaxed">{{ a|live_links }}</p>
             </details>
             {% endfor %}
         </div>
@@ -171,7 +171,7 @@
 <section class="fd-section-tight bg-slate-50">
     <div class="fd-container"><div class="fd-prose-wide">
         <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">About Fascinating Dentistry</h2>
-        <p class="text-slate-600 leading-relaxed mb-4">{{ hub.ABOUT }}</p>
+        <p class="text-slate-600 leading-relaxed mb-4">{{ hub.ABOUT|live_links }}</p>
         {% is_live_url "/about/" as ab %}{% if ab %}<a href="/about/" class="text-brand-green font-semibold hover:underline">Learn more about Fascinating Dentistry</a>{% else %}<span class="text-slate-400">Learn more about Fascinating Dentistry</span>{% endif %}
     </div></div>
 </section>

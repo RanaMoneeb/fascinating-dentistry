@@ -1,4 +1,5 @@
-<footer class="bg-brand-dark text-slate-300">
+<footer class="bg-brand-dark text-slate-300" xmlns="http://www.w3.org/1999/xhtml">
+    {% load home_tags %}
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             {# Brand #}
@@ -17,19 +18,19 @@
                 <div>
                     <h3 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Explore</h3>
                     <ul class="space-y-2">
-                        <li><a href="/australia/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Find a Dentist</a></li>
-                        <li><a href="/blog/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Blog</a></li>
-                        <li><a href="/about/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">About Us</a></li>
-                        <li><a href="/editorial-team/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Editorial Team</a></li>
+                        {% is_live_url "/australia/" as live %}{% if live %}<li><a href="/australia/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Find a Dentist</a></li>{% else %}<li class="text-sm text-slate-600">Find a Dentist</li>{% endif %}
+                        {% is_live_url "/blog/" as live %}{% if live %}<li><a href="/blog/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Blog</a></li>{% else %}<li class="text-sm text-slate-600">Blog</li>{% endif %}
+                        {% is_live_url "/about/" as live %}{% if live %}<li><a href="/about/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">About Us</a></li>{% else %}<li class="text-sm text-slate-600">About Us</li>{% endif %}
+                        {% is_live_url "/editorial-team/" as live %}{% if live %}<li><a href="/editorial-team/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Editorial Team</a></li>{% else %}<li class="text-sm text-slate-600">Editorial Team</li>{% endif %}
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Policies</h3>
                     <ul class="space-y-2">
-                        <li><a href="/methodology/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Methodology</a></li>
-                        <li><a href="/editorial-policy/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Editorial Policy</a></li>
-                        <li><a href="/disclosures/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Disclosures</a></li>
-                        <li><a href="/corrections/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Corrections</a></li>
+                        {% is_live_url "/methodology/" as live %}{% if live %}<li><a href="/methodology/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Methodology</a></li>{% else %}<li class="text-sm text-slate-600">Methodology</li>{% endif %}
+                        {% is_live_url "/editorial-policy/" as live %}{% if live %}<li><a href="/editorial-policy/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Editorial Policy</a></li>{% else %}<li class="text-sm text-slate-600">Editorial Policy</li>{% endif %}
+                        {% is_live_url "/disclosures/" as live %}{% if live %}<li><a href="/disclosures/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Disclosures</a></li>{% else %}<li class="text-sm text-slate-600">Disclosures</li>{% endif %}
+                        {% is_live_url "/corrections/" as live %}{% if live %}<li><a href="/corrections/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Corrections</a></li>{% else %}<li class="text-sm text-slate-600">Corrections</li>{% endif %}
                     </ul>
                 </div>
             </div>
@@ -39,9 +40,9 @@
                 <h3 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Contact</h3>
                 <ul class="space-y-2">
                     <li><a href="mailto:info@fascinatingdentistry.com" class="text-sm text-slate-400 hover:text-brand-green transition-colors">info@fascinatingdentistry.com</a></li>
-                    <li><a href="/contact/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Contact Form</a></li>
-                    <li><a href="/privacy/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Privacy Policy</a></li>
-                    <li><a href="/terms/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Terms of Service</a></li>
+                    {% is_live_url "/contact/" as live %}{% if live %}<li><a href="/contact/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Contact Form</a></li>{% else %}<li class="text-sm text-slate-600">Contact Form</li>{% endif %}
+                    {% is_live_url "/privacy/" as live %}{% if live %}<li><a href="/privacy/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Privacy Policy</a></li>{% else %}<li class="text-sm text-slate-600">Privacy Policy</li>{% endif %}
+                    {% is_live_url "/terms/" as live %}{% if live %}<li><a href="/terms/" class="text-sm text-slate-400 hover:text-brand-green transition-colors">Terms of Service</a></li>{% else %}<li class="text-sm text-slate-600">Terms of Service</li>{% endif %}
                 </ul>
             </div>
         </div>
