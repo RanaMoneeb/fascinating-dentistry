@@ -72,8 +72,10 @@ def process_body(html):
             if "fd-link" not in existing:
                 anchor["class"] = existing + ["fd-link"]
         else:
-            # Dead internal link — unwrap to plain text
-            anchor.unwrap()
+            # Dead internal link — keep as span with light color, not clickable
+            anchor.name = "span"
+            del anchor["href"]
+            anchor["class"] = "fd-link-pending"
 
     toc = []
     seen = set()
@@ -133,8 +135,10 @@ def live_links(html):
             if "fd-link" not in existing:
                 anchor["class"] = existing + ["fd-link"]
         else:
-            # Dead internal link — unwrap to plain text (no span, no styling)
-            anchor.unwrap()
+            # Dead internal link — keep as span with light color, not clickable
+            anchor.name = "span"
+            del anchor["href"]
+            anchor["class"] = "fd-link-pending"
     return mark_safe(str(soup))
 
 
