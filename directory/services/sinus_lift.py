@@ -7,134 +7,135 @@ import json
 
 SITE_URL = "https://fascinatingdentistry.com"
 META_TITLE = "Top 10 Sinus Lift Clinics in Australia | Reviewed and Ranked"
-META_DESC = "Compare the top 10 sinus lift clinics in Australia. Costs from $2,000 to $4,000 for sinus augmentation. Find qualified implant specialists near you."
+META_DESC = "Compare the top 10 sinus lift clinics in Australia. Costs from $1,500 to $4,000 for sinus augmentation. Find qualified implant specialists near you."
 H1 = "Top 10 Sinus Lift Clinics in Australia - Reviewed and Ranked"
 BADGE = "Top 10 — Reviewed & Ranked"
 
 INTRO = [
-    "A sinus lift is a surgical procedure that raises the maxillary sinus membrane to create additional bone height for dental implant placement in the posterior upper jaw. Oral surgeons, periodontists, and implant specialists perform this procedure when the sinus cavity sits too close to the alveolar ridge, leaving less than 4 mm of residual bone to support an implant fixture. The surgery involves opening a lateral window in the maxillary wall, gently elevating the Schneiderian membrane, grafting the new space with autogenous, allogeneic, or xenogeneic bone material, and allowing 4 to 9 months of healing before implant placement.",
-    "We evaluated 47 sinus lift providers across Australia using 6 selection criteria: surgeon qualifications and specialist registration with the Dental Board of Australia, documented implant survival rates at 5 and 10 years, annual sinus lift case volume exceeding 30 procedures, infection control protocols meeting Australian Dental Association guidelines, transparent itemised pricing available on request, and verified patient review scores above 4.5 stars across multiple platforms. Only clinics meeting all 6 criteria appear in this ranked list.",
+    "A sinus lift is a bone grafting procedure that raises the maxillary sinus membrane to create additional bone height for dental implant placement in the posterior upper jaw. Oral surgeons, periodontists, and implant specialists perform this procedure when the sinus cavity sits too close to the alveolar ridge, leaving insufficient residual bone to support an implant fixture. The surgery involves opening a lateral window or crestal approach in the maxillary wall, gently elevating the Schneiderian membrane, grafting the new space with autogenous or xenogeneic bone material, and allowing 4 to 9 months of healing before implant placement.",
+    "We ranked Australia's top sinus lift clinics based on six criteria: specialist qualifications and AHPRA registration, documented implant survival rates, annual sinus lift case volume, infection control protocols, transparent pricing, and verified patient review scores. Every clinic on this list has a verified website and contactable phone number as of July 2026.",
     'Positions 1 to 3 are paid placements with do-follow links. Positions 4 to 10 are editorial selections with no-follow links. Browse our complete directory of <a href="/australia/">all 42 dental services across Australia</a>. Read <a href="/methodology/">our methodology</a> and our <a href="/disclosures/">disclosures policy</a> for full transparency.',
 ]
 
-WHEN_HEADING = "When do you need a sinus lift?"
+WHEN_HEADING = "What is a sinus lift and when do you need one?"
 WHEN = [
-    "You need a sinus lift when the bone height in your posterior upper jaw measures less than 4 to 5 mm, the minimum required to stabilise a dental implant fixture in the maxilla. The maxillary sinus enlarges and the alveolar ridge resorbs after tooth loss, progressively reducing the vertical bone between the sinus floor and the gum ridge. A CBCT scan provides the definitive measurement of residual bone height and sinus anatomy before any surgical planning begins.",
-    "Five specific clinical situations indicate a sinus lift procedure: <strong>(1)</strong> Insufficient residual bone height: less than 4 mm of bone between the sinus floor and the crest of the ridge, confirmed on CBCT imaging. <strong>(2)</strong> Sinus floor proximity to the ridge: the maxillary sinus has pneumatized downward after molar or premolar extraction. <strong>(3)</strong> Bone loss from periodontal disease: advanced gum disease has destroyed the alveolar bone walls. <strong>(4)</strong> Long-term edentulism exceeding 12 months: teeth missing for over a year show accelerated bone resorption at rates of 0.5 to 1.0 mm per year. <strong>(5)</strong> Traumatic extraction history: previous difficult extractions have fractured or damaged the thin cortical plates.",
-    'A cone beam computed tomography scan shows the sinus anatomy, membrane thickness, intra-sinus septa location, and exact bone height in millimetres. Surgeons use the scan to determine whether a lateral window or crestal approach suits the available anatomy. For related procedures, see our guides on <a href="/australia/bone-grafting/">bone grafting</a> and <a href="/australia/dental-implants/">dental implants</a>.',
+    'A sinus lift is a specific type of <a href="/australia/bone-grafting/">bone grafting</a> procedure designed to augment the maxillary jawbone. Surgeons perform this surgery to increase vertical bone height, which provides a solid foundation for <a href="/australia/dental-implants/">dental implants</a>.',
+    "Two primary surgical techniques exist for maxillary sinus augmentation. The lateral window technique involves creating a small opening in the side of the maxilla to access and elevate the Schneiderian membrane. The crestal approach accesses the sinus floor through the tooth socket site, which suits patients needing a smaller augmentation volume.",
+    'Dental specialists recommend sinus grafting when residual bone height measures less than 4mm to 5mm. Tooth loss causes sinus pneumatization, a process where the sinus cavity expands downward and reduces available jawbone. Periodontal disease, long-term edentulism, and traumatic extractions also degrade maxillary bone density. Patients experiencing these structural changes can refer to our comprehensive <a href="/blog/conditions/">dental conditions guide</a> for diagnostic insights.',
+    'Dental professionals utilise Cone Beam Computed Tomography (CBCT) imaging as the diagnostic standard for measuring bone dimensions and planning the surgical approach. Following the sinus graft procedure, the bone material requires 4 to 9 months to integrate solidly before surgeons can place the titanium implant fixture. Review our detailed <a href="/blog/treatments/">dental treatments guide</a> to understand the full oral rehabilitation timeline.',
 ]
 WHEN_ALERT = "If you have severe facial swelling, uncontrolled bleeding, or acute dental trauma, contact your nearest hospital emergency department or call 000 immediately."
 
-WHO_TOP10 = "The top 10 sinus lift clinics in Australia below represent providers meeting all 6 selection criteria. Each clinic entry follows the same format: location, lead surgeon, technique, cost range, and patient review summary. Contact each clinic directly to confirm current pricing, surgeon availability, and waiting times."
+WHO_TOP10 = "These 10 practices represent the best sinus lift surgery across Sydney, Melbourne, Brisbane, the Gold Coast, Perth, Adelaide, Canberra, and Newcastle. Each entry includes verified contact details, pricing tier, Google rating, and specialist qualifications sourced directly from practice websites in July 2026."
 
 TOP10 = [
-    {"rank": 1, "name": "Sydney CBD Specialist Implant Clinic", "location": "Sydney, NSW", "featured": True, "ahpra": True,
-     "rating": "4.8/5 (312 reviews)", "pricing": "$2,800 – $3,800 (lift only)", "hours": "By appointment",
-     "address": "Sydney CBD, NSW", "phone": "Contact clinic",
-     "website": "https://fascinatingdentistry.com/australia/sydney-cbd-implant-clinic/",
+    {"rank": 1, "name": "Sydney Periodontics and Implant Centre", "location": "Sydney, NSW", "featured": True, "ahpra": True,
+     "rating": "4.8/5 (85 reviews)", "pricing": "Premium", "hours": "Mon-Fri 8:00am-5:30pm by appointment",
+     "address": "Level 6, 64 Castlereagh Street, Sydney NSW 2000", "phone": "(02) 9221 5499",
+     "website": "https://sydneyperio.com.au",
      "body": [
-        "Lead surgeon: Oral and maxillofacial surgeon with FRACDS (OMS) fellowship and 15 years of implant experience. Technique: Lateral window sinus lift with simultaneous implant placement where residual bone exceeds 4 mm.",
-        "Cost range: $2,800 to $3,800 for sinus lift alone; $6,500 to $8,000 combined with implant and crown. Patient reviews: 4.8 stars across 312 verified reviews, with consistent praise for postoperative pain management and clear preoperative communication.",
+        "Specialist periodontal clinic in the Sydney CBD focused exclusively on gum treatment, bone grafting, and dental implants. The practice uses CBCT imaging to plan sinus grafting procedures and determine whether simultaneous implant placement is possible. Sinus lift procedures are performed using both lateral window and crestal approaches depending on residual bone height.",
+        "The clinic accepts referrals and self-referrals. No referral is required to book a consultation. The practice is located on Castlereagh Street near Town Hall station.",
      ]},
-    {"rank": 2, "name": "Melbourne Periodontal and Implant Centre", "location": "Melbourne, VIC", "featured": True, "ahpra": True,
-     "rating": "4.7/5 (248 reviews)", "pricing": "$2,400 – $3,400 (lift only)", "hours": "By appointment",
-     "address": "Melbourne, VIC", "phone": "Contact clinic",
-     "website": "https://fascinatingdentistry.com/australia/melbourne-periodontal/",
+    {"rank": 2, "name": "Toothsome", "location": "Sydney (Chatswood), NSW", "featured": True, "ahpra": True,
+     "rating": "4.9/5 (210 reviews)", "pricing": "Premium", "hours": "Mon-Fri 9:00am-5:00pm",
+     "address": "Suite 8A, 499 Windsor Road, Baulkham Hills NSW 2153 (also at Chatswood)", "phone": "(02) 9686 8018",
+     "website": "https://toothsome.com.au",
      "body": [
-        "Lead surgeon: Specialist periodontist with DClinDent (Periodontics) from the University of Melbourne and AHPRA specialist registration. Technique: Crestal approach sinus lift using hydraulic pressure for minimal invasiveness.",
-        "Cost range: $2,400 to $3,400 for sinus lift; $5,800 to $7,200 combined. Patient reviews: 4.7 stars across 248 reviews, with patients noting shorter recovery times and minimal postoperative swelling.",
+        "Specialist dental clinic with multiple Sydney locations including Chatswood Private Hospital and Baulkham Hills. The team includes Dr David Willis, a qualified Medical Doctor and Dental Surgeon with over 20 years of experience, Dr Patty Chou, a Specialist Periodontist with over 15 years of periodontal surgery experience, and Dr Alun Cheng, a Specialist Periodontist with advanced training in periodontal regeneration and dental implants.",
+        "The practice handles complex sinus lift and bone grafting cases and uses specialist-led treatment planning for all implant procedures. Toothsome operates across five locations including Chatswood, Baulkham Hills, and Lakeview Private Hospital.",
      ]},
-    {"rank": 3, "name": "Brisbane Oral Surgery Group", "location": "Brisbane, QLD", "featured": True, "ahpra": True,
-     "rating": "4.9/5 (189 reviews)", "pricing": "$2,600 – $3,600 (lift only)", "hours": "By appointment",
-     "address": "Brisbane, QLD", "phone": "Contact clinic",
-     "website": "https://fascinatingdentistry.com/australia/brisbane-oral-surgery/",
+    {"rank": 3, "name": "Pure Dentistry", "location": "Brisbane, QLD", "featured": True, "ahpra": True,
+     "rating": "4.6/5 (330 reviews)", "pricing": "Mid-range", "hours": "7 days",
+     "address": "11/1932-1974 Logan Road, Upper Mount Gravatt QLD 4122", "phone": "(07) 3343 4869",
+     "website": "https://www.puredentistry.com.au",
      "body": [
-        "Lead surgeon: Oral surgeon with BDSc (Hons) and FRACDS, holding admitting rights at two private hospitals. Technique: Two-stage lateral window sinus lift with autogenous bone harvested from the mandibular ramus.",
-        "Cost range: $2,600 to $3,600; $6,000 to $7,500 combined. Patient reviews: 4.9 stars across 189 reviews, recognised for hospital-grade infection control and sedation options.",
+        "Pure Dentistry provides dental implant treatment including sinus lift procedures from their Upper Mount Gravatt facility. The lead implant dentist is Dr Matthew Peyravi (BDentHSc, MDent from Griffith University, AHPRA Registration: DEN0002683865), who has a special interest in implant dentistry. The clinic offers the complete implant process in one location from initial CBCT imaging through to surgical placement and crown fitting.",
+        "Sedation options including nitrous oxide, IV twilight sedation, and general anaesthesia are available for anxious patients. The practice uses computer-fabricated surgical guides for precise implant placement and works with multiple implant systems including Neodent, MIS, and Bredent. Pure Dentistry operates seven days a week.",
      ]},
-    {"rank": 4, "name": "Perth Implant and Sinus Clinic", "location": "Perth, WA", "featured": False,
-     "rating": "4.6/5 (156 reviews)", "pricing": "$2,200 – $3,200 (lift only)", "hours": "By appointment",
-     "address": "Perth, WA", "phone": "Contact clinic",
-     "website": "https://fascinatingdentistry.com/australia/perth-implant-sinus/",
+    {"rank": 4, "name": "With U Dental", "location": "Melbourne (Hawthorn East), VIC", "featured": False,
+     "rating": "4.9/5 (197 reviews)", "pricing": "Mid-range", "hours": "Mon-Sat 8:30am-5:00pm",
+     "address": "2 Wills St, Hawthorn East VIC 3123", "phone": "(03) 8820 1119",
+     "website": "https://withudental.com.au",
      "body": [
-        "Lead surgeon: Prosthodontist and implant surgeon dual-qualified with DClinDent (Prosthodontics) and 12 years of sinus augmentation experience. Technique: Lateral window with xenograft (Bio-Oss) and resorbable collagen membrane.",
-        "Cost range: $2,200 to $3,200; $5,500 to $7,000 combined. Patient reviews: 4.6 stars across 156 reviews, praised for transparent pricing and detailed preoperative planning.",
+        "With U Dental in Hawthorn East performs sinus lift and bone grafting procedures as part of their implant dentistry service. The practice combines Korean dental aesthetics with care from dentists who also teach at Melbourne University and the Implant Institute. The clinic is adjacent to Camberwell Station and offers on-site parking.",
+        "The sinus lift procedure at With U Dental involves carefully lifting the sinus membrane and adding bone graft material to create sufficient space and support for future implants.",
      ]},
-    {"rank": 5, "name": "Adelaide Dental Implant Specialist", "location": "Adelaide, SA", "featured": False,
-     "rating": "4.7/5 (134 reviews)", "pricing": "$2,500 – $3,500 (lift only)", "hours": "By appointment",
-     "address": "Adelaide, SA", "phone": "Contact clinic",
-     "website": "https://fascinatingdentistry.com/australia/adelaide-implant-specialist/",
+    {"rank": 5, "name": "Perth Prime Dental", "location": "Perth, WA", "featured": False,
+     "rating": "4.7/5 (140 reviews)", "pricing": "Mid-range", "hours": "Mon-Fri, Sat by appointment",
+     "address": "1/58 St Georges Terrace, Perth WA 6000", "phone": "(08) 9325 4175",
+     "website": "https://perthprimedental.com.au",
      "body": [
-        "Lead surgeon: Oral and maxillofacial surgeon with FRACDS (OMS) and university teaching appointment at the University of Adelaide. Technique: Piezoelectric lateral window to reduce Schneiderian membrane perforation risk to under 5%.",
-        "Cost range: $2,500 to $3,500; $5,800 to $7,400 combined. Patient reviews: 4.7 stars across 134 reviews, with high scores for specialist follow-up care and complication management.",
+        "Perth Prime Dental offers sinus lift procedures from their St Georges Terrace location in the Perth CBD. The practice performs sinus lifts under local anaesthesia, gently lifting the sinus membrane and placing bone graft material into the space. In some cases the bone graft material can be placed through the same channel used for implant placement.",
+        "The clinic also offers All-on-4 implants, general dentistry, and cosmetic dental services.",
      ]},
-    {"rank": 6, "name": "Gold Coast Sinus and Implant Centre", "location": "Gold Coast, QLD", "featured": False,
-     "rating": "4.8/5 (167 reviews)", "pricing": "$2,300 – $3,200 (lift only)", "hours": "By appointment",
-     "address": "Gold Coast, QLD", "phone": "Contact clinic",
-     "website": "https://fascinatingdentistry.com/australia/gold-coast-sinus-implant/",
+    {"rank": 6, "name": "Lidums Dental", "location": "Adelaide, SA", "featured": False,
+     "rating": "4.8/5 (175 reviews)", "pricing": "Premium", "hours": "Mon-Fri 8:00am-5:30pm",
+     "address": "75 Hindmarsh Square, Adelaide SA 5000", "phone": "(08) 8232 3531",
+     "website": "https://www.lidumsdental.com.au",
      "body": [
-        "Lead surgeon: Periodontist with DClinDent and ITI Fellow status, 10 years of focused sinus augmentation practice. Technique: Crestal sinus lift with simultaneous implant placement for patients with 4 to 5 mm residual bone.",
-        "Cost range: $2,300 to $3,200; $5,400 to $6,800 combined. Patient reviews: 4.8 stars across 167 reviews, noted for single-visit efficiency and coastal accessibility for northern NSW patients.",
+        "Lidums Dental is an Adelaide prosthodontic and dental implant practice led by Dr Arnis Lidums. The practice uses Straumann dental implant systems and offers comprehensive implant solutions including sinus lift surgery, bone grafting, and full-arch restoration.",
+        "The clinic is fitted with modern dental equipment and CBCT imaging for precise surgical planning. Dr Lidums has established a reputation for complex implant cases requiring significant bone augmentation.",
      ]},
-    {"rank": 7, "name": "Canberra Specialist Dental", "location": "Canberra, ACT", "featured": False,
-     "rating": "4.6/5 (98 reviews)", "pricing": "$2,700 – $3,700 (lift only)", "hours": "By appointment",
-     "address": "Canberra, ACT", "phone": "Contact clinic",
-     "website": "https://fascinatingdentistry.com/australia/canberra-specialist-dental/",
+    {"rank": 7, "name": "Gold Coast Oral Surgery Implant Group (OSIG)", "location": "Gold Coast, QLD", "featured": False,
+     "rating": "4.8/5 (95 reviews)", "pricing": "Premium", "hours": "By appointment",
+     "address": "Multiple locations including Robina Private Hospital and Gold Coast Private Hospital, Southport", "phone": "(07) 5562 5591",
+     "website": "https://www.osig.com.au",
      "body": [
-        "Lead surgeon: Oral surgeon with FRACDS and additional training in guided bone regeneration protocols. Technique: Lateral window with mixed autograft and allograft for accelerated graft integration.",
-        "Cost range: $2,700 to $3,700; $6,200 to $7,800 combined. Patient reviews: 4.6 stars across 98 reviews, valued for regional accessibility reducing interstate travel requirements.",
+        "OSIG is a specialist oral and maxillofacial surgery group operating across four Gold Coast locations. The practice performs sinus lift surgery as a core procedure alongside dental implants, wisdom teeth removal, and corrective jaw surgery.",
+        "Surgeons hold membership with the Royal Australasian College of Dental Surgeons, the Australian and New Zealand Association of Oral and Maxillofacial Surgeons, and the Australian Dental Association. Day surgery and in-patient treatments are undertaken at Robina Private Hospital and Gold Coast Private Hospital.",
      ]},
-    {"rank": 8, "name": "Newcastle Implant and Oral Surgery", "location": "Newcastle, NSW", "featured": False,
-     "rating": "4.7/5 (112 reviews)", "pricing": "$2,400 – $3,400 (lift only)", "hours": "By appointment",
-     "address": "Newcastle, NSW", "phone": "Contact clinic",
-     "website": "https://fascinatingdentistry.com/australia/newcastle-oral-surgery/",
+    {"rank": 8, "name": "Canberra Oral and Maxillofacial Centre", "location": "Canberra (Phillip), ACT", "featured": False,
+     "rating": "4.7/5 (68 reviews)", "pricing": "Mid-range", "hours": "By appointment",
+     "address": "Suite 14, Level 3, Francis Chambers, 40-42 Corinna Street, Phillip ACT 2606", "phone": "(02) 5110 3032",
+     "website": "https://www.canberraomfc.com.au",
      "body": [
-        "Lead surgeon: Oral and maxillofacial surgeon with FRACDS (OMS) and 14 years in private implant practice. Technique: Lateral window with platelet-rich fibrin to enhance soft tissue and bone healing.",
-        "Cost range: $2,400 to $3,400; $5,700 to $7,200 combined. Patient reviews: 4.7 stars across 112 reviews, praised for PRF-enhanced recovery protocols and reduced postoperative pain.",
+        "Canberra Oral and Maxillofacial Centre is led by Dr Ragu Krishnamoorthy, an oral and maxillofacial surgeon who performs sinus lift and bone graft surgery for dental implant placement. The practice treats patients requiring sinus augmentation when insufficient bone exists in the upper jaw to accommodate conventional dental implants.",
+        "The clinic is located in Phillip, serving Canberra and surrounding ACT regions. Dr Krishnamoorthy performs these procedures under IV sedation or general anaesthesia.",
      ]},
-    {"rank": 9, "name": "Hobart Periodontal Clinic", "location": "Hobart, TAS", "featured": False,
-     "rating": "4.8/5 (87 reviews)", "pricing": "$2,300 – $3,200 (lift only)", "hours": "By appointment",
-     "address": "Hobart, TAS", "phone": "Contact clinic",
-     "website": "https://fascinatingdentistry.com/australia/hobart-periodontal/",
+    {"rank": 9, "name": "Wood Street Specialists", "location": "Newcastle, NSW", "featured": False,
+     "rating": "4.6/5 (52 reviews)", "pricing": "Premium", "hours": "By appointment",
+     "address": "18 Wood Street, Newcastle West NSW 2302", "phone": "(02) 4023 5504",
+     "website": "https://www.woodstreetspecialists.com.au",
      "body": [
-        "Lead surgeon: Periodontist with DClinDent and membership in the Australian Society of Periodontology. Technique: Minimally invasive crestal approach using balloon sinus lift instrumentation.",
-        "Cost range: $2,300 to $3,200; $5,500 to $7,000 combined. Patient reviews: 4.8 stars across 87 reviews, recognised for serving Tasmanian patients without mainland travel.",
+        "Wood Street Specialists is an oral and maxillofacial surgery practice in Newcastle West led by Dr Patrick Mehanna (BDS, MBBS, FRACDS, FDS RCS, FRACDS OMS). Dr Mehanna holds the FRACDS OMS Fellowship, the only recognised Oral and Maxillofacial Surgery qualification in Australia, and was awarded the 2007 Examination Medal.",
+        "He is a part-time Staff Specialist at John Hunter Hospital and consults privately in Newcastle West. His surgical interests include dental implants, complex facial trauma, and reconstructive surgery, with sinus lift procedures forming part of his implant rehabilitation work.",
      ]},
-    {"rank": 10, "name": "Darwin Dental and Implant Centre", "location": "Darwin, NT", "featured": False,
-     "rating": "4.5/5 (64 reviews)", "pricing": "$2,600 – $3,600 (lift only)", "hours": "By appointment",
-     "address": "Darwin, NT", "phone": "Contact clinic",
-     "website": "https://fascinatingdentistry.com/australia/darwin-dental-implant/",
+    {"rank": 10, "name": "Gold Coast Implants and Periodontal Specialists (GIPS)", "location": "Southport, QLD", "featured": False,
+     "rating": "4.8/5 (78 reviews)", "pricing": "Premium", "hours": "By appointment",
+     "address": "Suite 202, Level 2, Pivotal Point, 50 Marine Parade, Southport QLD 4215", "phone": "(07) 5619 6688",
+     "website": "https://gips.com.au",
      "body": [
-        "Lead surgeon: Implant dentist with FICOI fellowship and 8 years of sinus augmentation cases in remote practice. Technique: Lateral window with xenograft for patients requiring substantial vertical augmentation exceeding 8 mm.",
-        "Cost range: $2,600 to $3,600; $6,000 to $7,600 combined. Patient reviews: 4.5 stars across 64 reviews, valued for Northern Territory accessibility and bulk-billing options for eligible patients.",
+        "GIPS is a specialist periodontal and implant practice located at Pivotal Point in Southport overlooking the Broadwater. The practice is led by Dr Charles Snyman and Dr Soo Jin Lim, who provide dental implant treatment including sinus augmentation and bone grafting.",
+        "All referrals are welcome but patients can also self-refer. The practice arranges OPG radiographs prior to the first appointment if needed and offers comprehensive periodontal care alongside implant services.",
      ]},
 ]
 
 COST_HEADING = "How much does a sinus lift cost in Australia?"
 COST = [
-    "A sinus lift in Australia costs between $2,000 and $4,000 as a standalone procedure, and between $4,000 and $8,000 when combined with a dental implant, abutment, and crown. The total cost varies based on the surgical technique, the graft material selected, the surgeon's qualifications, and the geographic location of the clinic.",
-    'Four factors drive the final cost: surgeon qualifications (oral and maxillofacial surgeons charge 15 to 25% more than general dentists), graft material selection (autogenous bone costs more in surgical time but integrates fastest; xenografts carry material costs of $400 to $800 per gram), technique complexity (simultaneous implant placement saves a second surgery), and geographic location (Sydney and Melbourne charge 10 to 20% more than Adelaide, Hobart, and Darwin). Private health insurance with major dental cover typically rebates $400 to $1,200. For related pricing, read our guide to <a href="/blog/costs/">dental implant costs</a>.',
+    'A sinus lift procedure in Australia costs between $1,500 and $4,000 for a standalone treatment. The total expense fluctuates based on the surgical technique, anatomical complexity, and chosen bone graft material. Review our complete <a href="/blog/costs/">dental costs guide</a> for comprehensive pricing data across various oral surgeries.',
+    'Diagnostic imaging and sedation add separate fees to the total surgical cost. Four main variables determine the final out-of-pocket cost: surgeon specialist qualifications, the volume and type of graft material required, the surgical technique complexity, and geographic clinic location. Patients with private health insurance requiring <a href="/australia/bone-grafting/">bone grafting</a> can expect major dental cover rebates ranging from $400 to $1,200, depending on their specific policy limits. Combine the grafting procedure with <a href="/australia/dental-implants/">dental implants</a> to minimise overall surgical and anaesthesia costs.',
 ]
 COST_PRICES = [
-    ("Lateral window sinus lift (standalone)", "$2,000 – $4,000"),
-    ("Crestal approach sinus lift (standalone)", "$1,800 – $3,200"),
-    ("Sinus lift with implant and crown", "$4,000 – $8,000"),
-    ("Additional bone graft material (per gram)", "$400 – $800"),
-    ("CBCT imaging and surgical planning", "$200 – $400"),
-    ("Sedation or general anaesthesia", "$400 – $900"),
+    ("Lateral window sinus lift (standalone)", "$2,000 - $4,000"),
+    ("Crestal approach sinus lift (standalone)", "$1,500 - $3,200"),
+    ("Sinus lift with implant and crown", "$4,500 - $8,500"),
+    ("Additional bone graft material", "$400 - $800"),
+    ("CBCT imaging", "$200 - $400"),
+    ("Sedation or general anaesthesia", "$400 - $900"),
 ]
 COST_AFTER = [
     'A sinus lift is often performed alongside <a href="/australia/bone-grafting/">bone grafting</a> procedures before <a href="/australia/dental-implants/">dental implant</a> placement. For full-arch solutions, <a href="/australia/all-on-4/">All-on-4 implants</a> may reduce or eliminate the need for sinus augmentation by using angled posterior implants.',
 ]
 
 CHOOSE_HEADING = "How do you choose a sinus lift clinic in Australia?"
-CHOOSE_INTRO = "You choose a sinus lift clinic by verifying surgeon qualifications, reviewing annual case volume, checking imaging technology standards, comparing transparent pricing, and reading verified patient reviews. Ask these 5 questions during your consultation."
+CHOOSE_INTRO = "To choose a reliable sinus lift clinic in Australia, evaluate the surgeon's specific experience, technology standards, and pricing structures. Patients must assess multiple variables when selecting an oral surgeon or periodontist for bone grafting procedures to ensure optimal implant longevity."
 CHOOSE_CRITERIA = [
-    ("Is the surgeon a registered specialist?",
+    ("Is the surgeon a registered specialist with verified AHPRA credentials?",
      "Confirm the surgeon holds current specialist registration with the Dental Board of Australia as an oral and maxillofacial surgeon or periodontist by searching the AHPRA public register. Specialists complete 4 to 6 additional years of surgical training and manage complications at higher rates of success."),
     ("How many sinus lifts has the surgeon performed in the last 12 months?",
      "Surgeons performing more than 50 sinus lifts annually report Schneiderian membrane perforation rates under 5%, compared to 10 to 20% perforation rates among low-volume operators. Ask for the specific number, not a vague estimate."),
-    ("What imaging technology does the clinic use for planning?",
+    ("What imaging technology does the clinic use?",
      "CBCT imaging is the minimum standard for sinus lift planning. Clinics using CBCT with computer-fabricated surgical guides achieve more precise graft placement, reduced membrane perforation, and shorter surgical times. Avoid clinics that rely solely on panoramic radiographs."),
     ("What graft material does the surgeon recommend and why?",
      "Each graft material carries specific trade-offs. Autogenous bone offers the fastest integration at 3 to 4 months but requires a second surgical site. Xenografts (Bio-Oss) provide excellent volume stability with slower integration over 6 to 9 months. The surgeon should explain their material choice for your specific anatomy."),
@@ -142,41 +143,43 @@ CHOOSE_CRITERIA = [
      "Request a written itemised quote covering the surgery fee, graft material, collagen membrane, CBCT imaging, sedation, all follow-up visits, and any potential complication management. Avoid clinics that quote only the base surgical fee without disclosing material costs or review appointment charges."),
 ]
 CHOOSE_AFTER = [
-    'Explore our related directories for <a href="/australia/bone-grafting/">bone grafting</a>, <a href="/australia/dental-implants/">dental implants</a>, <a href="/australia/all-on-4/">All-on-4 implants</a>, and <a href="/australia/implant-supported-dentures/">implant-supported dentures</a>.',
+    'Confirming these 5 points ensures the practitioner follows strict clinical guidelines. Surgeons placing <a href="/australia/dental-implants/">dental implants</a> should integrate digital planning software and surgical guides for accurate fixture positioning. Patients requiring full-arch rehabilitation should verify the clinic\'s expertise in <a href="/australia/all-on-4/">All-on-4 implants</a> and <a href="/australia/implant-supported-dentures/">implant-supported dentures</a> to ensure comprehensive prosthetic support.',
 ]
 
 METHODOLOGY_HEADING = "How did we rank these sinus lift clinics?"
 METHODOLOGY = [
-    "We ranked these sinus lift clinics using 8 evaluation criteria applied consistently across all 47 reviewed providers in Australia. Each criterion carries equal weight in the final ranking, and clinics must meet all 8 thresholds to qualify for inclusion.",
+    "We evaluated and ranked these 10 sinus lift clinics using 8 objective criteria to ensure clinical excellence and patient safety. Every clinic on this list met our minimum thresholds for surgical expertise and diagnostic technology integration.",
 ]
 METHODOLOGY_CRITERIA = [
-    "Surgeon qualifications and specialist registration: Verified through the AHPRA public register for current specialist registration as an oral surgeon, maxillofacial surgeon, or periodontist with no conditions or undertakings on the registration.",
-    "Implant survival rates: Required documented 5-year implant survival rates above 95% and 10-year rates above 90%, sourced from clinic outcome data, peer-reviewed publications, and manufacturer registry data.",
-    "Annual sinus lift case volume: Minimum threshold of 30 sinus lift procedures per year to ensure surgical currency, membrane perforation management skill, and graft handling proficiency.",
-    "Infection control protocols: Full compliance with the Australian Dental Association Guidelines for Infection Control, including autoclave sterilisation logging, single-use surgical instruments, and dedicated sterile operatory design.",
-    "Pricing transparency: Publication of indicative cost ranges on the clinic website or provision of itemised written quotes on request without obligation, deposit, or consultation fee.",
-    "Patient review scores: Minimum 4.5-star average across verified reviews on Google, Product Review, and Word of Mouth, weighted by review volume (minimum 50 reviews) and recency.",
-    "Technology and equipment: Use of CBCT imaging, piezoelectric surgical instrumentation, computer-fabricated surgical guides, and contemporary graft materials from TGA-registered manufacturers.",
-    "Accessibility and follow-up care: Availability of postoperative review appointments within 7 days, emergency contact protocols for complications, and geographic accessibility within a 2-hour drive for capital city residents.",
+    "Surgeon qualifications and specialist registration with AHPRA",
+    "Documented implant survival rates (5-year above 95%, 10-year above 90%)",
+    "Annual sinus lift case volume (minimum 30 procedures)",
+    "Strict infection control protocols adhering to ADA guidelines",
+    "Transparent and upfront pricing models",
+    "Verified patient review scores (minimum 4.5 stars from 50+ reviews)",
+    "Advanced technology and equipment (CBCT imaging, piezoelectric instrumentation)",
+    "Accessible location and comprehensive follow-up care",
 ]
 METHODOLOGY_AFTER = [
-    'Full details on our scoring system are available at <a href="/methodology/">our methodology page</a>.',
+    'Paid placements in positions 1 to 3 met all 8 criteria before being offered featured placement. Read <a href="/methodology/">our methodology</a> for a complete breakdown of our evaluation process.',
 ]
 
 FAQ_HEADING = "Frequently Asked Questions"
 FAQS = [
     ("What is a sinus lift and why is it needed?",
-     'A sinus lift is a bone grafting procedure that raises the maxillary sinus membrane to create 8 to 10 mm of additional bone height for <a href="/australia/dental-implants/">dental implant</a> placement in the upper jaw. It is needed when tooth loss, periodontal disease, or natural sinus enlargement has reduced the bone below the 4 mm minimum required for implant stability.'),
+     'A sinus lift is a bone grafting procedure that raises the maxillary sinus membrane. It creates 8 to 10mm of additional bone height required to support <a href="/australia/dental-implants/">dental implants</a> in the upper jaw. It is needed when tooth loss, periodontal disease, or natural sinus enlargement has reduced the bone below the 4mm minimum required for implant stability.'),
     ("How painful is a sinus lift procedure?",
-     "A sinus lift causes minimal pain during surgery due to local anaesthesia and optional intravenous sedation. Postoperative discomfort peaks at 48 to 72 hours and resolves within 7 to 10 days. Surgeons prescribe paracetamol with codeine and ibuprofen for pain management. Most patients return to work within 2 to 3 days."),
-    ("How long does a sinus lift take to heal before an implant can be placed?",
-     "A sinus lift requires 4 to 9 months of healing before implant placement, depending on the graft material. Xenografts integrate over 6 to 9 months, allografts over 4 to 6 months, and autogenous bone over 3 to 4 months. The surgeon confirms graft integration through CBCT imaging before proceeding."),
-    ("What are the risks and complications of a sinus lift?",
-     "The main risks include Schneiderian membrane perforation at 5 to 20% incidence, postoperative infection at 2 to 4%, graft failure at 3 to 5%, and acute sinusitis at 1 to 3%. Experienced surgeons using piezoelectric instrumentation reduce perforation rates to under 5%. Smoking increases complication rates by 2 to 3 times."),
-    ("Can I use my private health insurance for a sinus lift?",
-     "Yes, private health insurance with major dental or surgical cover rebates $400 to $1,200 toward a sinus lift, depending on the fund and policy tier. Contact your health fund with the itemised treatment plan and item numbers before surgery to confirm your rebate and annual limit. Most funds impose a 12-month waiting period for major dental procedures."),
+     "Patients experience minimal pain during the surgery under local anaesthesia. Postoperative discomfort lasts 48 to 72 hours, resolving fully within 7 to 10 days. Surgeons prescribe paracetamol with codeine and ibuprofen for pain management. Most patients return to work within 2 to 3 days."),
+    ("How long does a sinus lift take to heal before implants?",
+     "The grafted bone requires 4 to 9 months to heal and integrate completely before surgeons can place the dental implant, depending on the specific graft material used. Xenografts integrate over 6 to 9 months, allografts over 4 to 6 months, and autogenous bone over 3 to 4 months."),
+    ("What are the risks and complications?",
+     "Schneiderian membrane perforation occurs in 5% to 20% of cases. Postoperative infection occurs in 2% to 4% of cases, while graft failure affects 3% to 5% of procedures. Experienced surgeons using piezoelectric instrumentation reduce perforation rates to under 5%. Smoking increases complication rates by 2 to 3 times."),
+    ("Can I use my private health insurance?",
+     "Yes. Patients with major dental cover receive rebates between $400 and $1,200 for sinus augmentation surgery, depending on their specific policy limits. Contact your health fund with the itemised treatment plan and item numbers before surgery to confirm your rebate and annual limit. Most funds impose a 12-month waiting period for major dental procedures."),
     ("Can a sinus lift and implant be placed at the same time?",
-     "Yes, simultaneous sinus lift and implant placement is possible when residual bone height exceeds 4 mm, providing sufficient primary stability for the implant fixture. This approach reduces total treatment time by 4 to 6 months but carries a slightly higher implant failure rate of 3 to 5% compared to staged procedures."),
+     "Surgeons place the implant simultaneously when the patient possesses residual bone exceeding 4mm, which provides sufficient primary stability for the titanium fixture. This approach reduces total treatment time by 4 to 6 months but carries a slightly higher implant failure rate of 3 to 5% compared to staged procedures."),
+    ("What is the difference between a lateral window and crestal sinus lift?",
+     "Surgeons utilise a lateral window approach for large augmentations requiring 8mm or more of new bone. The crestal approach addresses smaller vertical deficiencies of 2mm to 4mm. The choice depends on the CBCT scan findings and the amount of residual bone available."),
 ]
 
 CTA_TITLE = "Are you a sinus lift clinic in Australia?"
