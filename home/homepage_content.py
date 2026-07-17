@@ -53,7 +53,7 @@ FIND_DENTIST = {
         "intro": "Patients locate specialists by searching specific treatment types. We list verified providers for 10 high-priority dental services:",
         "items": [
             {"name": "Emergency Dentist", "href": "/australia/emergency-dentist/"},
-            {"name": "Cosmetic Dentist", "href": "/australia/cosmetic-dentist/"},
+            {"name": "Cosmetic Dentistry", "href": "/australia/cosmetic-dentistry/"},
             {"name": "Family Dentist", "href": "/australia/family-dentist/"},
             {"name": "Affordable Dentist", "href": "/australia/affordable-dentist/"},
             {"name": "Teeth Whitening", "href": "/australia/teeth-whitening/"},
@@ -108,12 +108,12 @@ SERVICES = {
             {"name": "Cosmetic Dentistry", "href": "/australia/cosmetic-dentistry/"},
             {"name": "Teeth Whitening", "href": "/australia/teeth-whitening/"},
             {"name": "Porcelain Veneers", "href": "/australia/porcelain-veneers/"},
-            {"name": "Composite Veneers", "href": "/australia/composite-veneers/"},
+            {"name": "Composite Bonding", "href": "/australia/composite-bonding/"},
             {"name": "Smile Makeover", "href": "/australia/smile-makeover/"},
             {"name": "Gum Contouring", "href": "/australia/gum-contouring/"},
         ]},
         {"name": "Orthodontics", "desc": "Orthodontic treatment aligns teeth and corrects jaw discrepancies. We outline 6 orthodontic solutions.", "items": [
-            {"name": "Traditional Braces", "href": "/australia/traditional-braces/"},
+            {"name": "Braces", "href": "/australia/braces/"},
             {"name": "Invisalign", "href": "/australia/invisalign/"},
             {"name": "Clear Aligners", "href": "/australia/clear-aligners/"},
             {"name": "Ceramic Braces", "href": "/australia/ceramic-braces/"},
@@ -134,7 +134,7 @@ SERVICES = {
             {"name": "Sleep Apnoea Treatment", "href": "/australia/sleep-apnoea-treatment/"},
         ]},
         {"name": "Paediatric Dentistry", "desc": "Paediatric specialists treat infants, children, and adolescents. We cover 5 child-specific areas via the Paediatric Dentistry hub.", "items": [
-            {"name": "Paediatric Dentistry", "href": "/australia/paediatric-dentistry/"},
+            {"name": "Pediatric Dentist", "href": "/australia/pediatric-dentist/"},
             {"name": "Childrens Dentist", "href": "/australia/childrens-dentist/"},
             {"name": "Fissure Sealants", "href": "/australia/fissure-sealants/"},
             {"name": "Orthodontics for Children", "href": "/australia/orthodontics-for-children/"},
@@ -142,7 +142,7 @@ SERVICES = {
         ]},
         {"name": "Specialist Services", "desc": "Specialist services address highly specific complex dental conditions. We provide 4 dedicated hubs.", "items": [
             {"name": "Endodontics", "href": "/australia/endodontist/"},
-            {"name": "Periodontics", "href": "/australia/periodontics/"},
+            {"name": "Periodontist", "href": "/australia/periodontist/"},
             {"name": "Prosthodontics", "href": "/australia/prosthodontics/"},
             {"name": "Oral Medicine", "href": "/australia/oral-medicine/"},
         ]},
