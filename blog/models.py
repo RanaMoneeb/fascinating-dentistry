@@ -79,9 +79,15 @@ class BlogIndexPage(Page):
     def get_context(self, request):
         context = super().get_context(request)
         from . import blog_hub_content
+        from django.core.paginator import Paginator
         context["bh"] = blog_hub_content
-        # Posts in this cluster only
-        context["posts"] = BlogPage.objects.descendant_of(self).live().order_by("-first_published_at")[:6]
+        # All posts under this index (including cluster sub-pages)
+        all_posts = BlogPage.objects.descendant_of(self).live().order_by("-first_published_at")
+        # Paginate: 30 per page for infinite scroll
+        paginator = Paginator(all_posts, 30)
+        page = request.GET.get("page", 1)
+        context["posts"] = paginator.get_page(page)
+        context["total_posts"] = all_posts.count()
         # For cluster hubs: process the body (numbered sections, TOC, dead-link neutralising)
         if self.body:
             from home.templatetags.home_tags import process_body
@@ -141,4 +147,21 @@ class BlogPage(Page):
         processed = process_body(self.body or "")
         context["body_html"] = processed["html"]
         context["toc"] = processed["toc"]
+
+        # Previous / next post navigation (siblings in the same cluster)
+        siblings = (
+            BlogPage.objects.sibling_of(self)
+            .live()
+            .order_by("-first_published_at")
+        )
+        # Find self position in the sibling list and pick neighbours
+        sibling_ids = list(siblings.values_list("pk", flat=True))
+        if self.pk in sibling_ids:
+            idx = sibling_ids.index(self.pk)
+            context["prev_post"] = siblings[idx - 1] if idx > 0 else None
+            context["next_post"] = siblings[idx + 1] if idx < len(sibling_ids) - 1 else None
+        else:
+            context["prev_post"] = None
+            context["next_post"] = None
+
         return context
