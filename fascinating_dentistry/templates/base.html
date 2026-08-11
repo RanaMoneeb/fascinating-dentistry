@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="qU-NXflUnuaznEDvCKGyH7tdK1Rl3iv3DQ2tplTAIzI" />
 
+    {# --- Google AdSense --- #}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4036697823075236"
+     crossorigin="anonymous"></script>
+
     {# --- Title + Description --- #}
     <title>{% block title %}{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}{% endblock %}</title>
     {% if page.search_description %}<meta name="description" content="{{ page.search_description }}">{% endif %}
