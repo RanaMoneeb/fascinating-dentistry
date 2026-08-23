@@ -78,14 +78,13 @@ METHODOLOGY_AFTER = []
 
 FAQ_HEADING = "Frequently Asked Questions"
 FAQS = [
-    ("1. Royal Dental Hospital of Melbourne (RDHM) — Featured", "- **Location:** Carlton, VIC"),
-    ("2. Sydney Dental Hospital — Featured", "- **Location:** Surry Hills, NSW"),
-    ("3. Adelaide Dental Hospital (SA Dental Service) — Featured", "- **Location:** Adelaide, SA"),
-    ("4. Oral Health Centre of Western Australia (Perth Dental Hospital)", "- **Location:** Nedlands, WA"),
-    ("5. UQ Oral Health Centre (University of Queensland)", "- **Location:** Herston, QLD"),
-    ("6. Charles Sturt University Dental and Oral Health Clinic — Wagga Wagga", "- **Location:** Wagga Wagga, NSW"),
-    ("7. JCU Dental — Cairns (James Cook University)", "- **Location:** Smithfield, QLD"),
-    ("8. Flinders University Dental Clinic — Bedford Park", "- **Location:** Bedford Park, SA"),
+    ("Am I eligible for free or low-cost dental care with a concession card?", "In most states, holding a Health Care Card or Pensioner Concession Card gives you access to public dental care with heavily subsidised fees or a small co-payment. Eligibility rules and co-payment amounts vary by state, so check your state health department's website or call the clinic directly to confirm before you attend — our [dental check-up guide](/australia/dental-check-up/) explains what a standard first visit covers."),
+    ("Does Medicare cover dental treatment for adults?", "Generally, no. Medicare does not cover general dental care for adults. The main exception is the Medicare Child Dental Benefits Schedule, which covers basic dental treatment for children aged 2–17. Adults usually need private health insurance, a public concession scheme, or out-of-pocket payment. Compare extras cover in our [private health insurance guide](/blog/private-health-insurance/) before choosing a fund."),
+    ("What is the Medicare Child Dental Benefits Schedule and how much is it worth?", "The CDBS provides up to $1,052 per child over two calendar years for children aged 2–17. It covers check-ups, cleans, fillings, extractions and other basic services. You pay nothing only if your dentist bulk-bills the CDBS — confirm this before booking. See our [child dental care guide](/australia/child-dental-care/) for details."),
+    ("Are university dental clinics safe and as good as private dentists?", "Yes. Every student's work is checked and signed off by registered, experienced dentists and clinicians. Appointments take longer and you may be placed on a waitlist, but the standard of care is high and fees are usually 30–50% lower than private practice — a safe choice for routine and intermediate treatment. See our [dental cleaning guide](/australia/dental-cleaning/) for what a supervised student clean involves."),
+    ("Is \"no-gap\" dental treatment really free?", "No-gap means your health fund covers the full cost of the agreed treatment, so you pay nothing out-of-pocket — but only if your fund has a no-gap agreement with the practice, you have served waiting periods, and you have enough annual limits remaining. Always confirm coverage in writing before you book, and check what a standard visit includes in our [dental check-up guide](/australia/dental-check-up/)."),
+    ("How much does a root canal, crown or denture cost in Australia?", "Root canals typically cost $700–$1,300 for a front tooth and $1,300–$2,600 for a back molar. Crowns cost roughly $1,200–$2,500, and full dentures range from $1,000–$3,500. Complexity, the tooth involved and the material all affect the final price. See our [root canal treatment guide](/australia/root-canal-treatment/) and [denture guide](/australia/dentures/)."),
+    ("Can I pay dental costs over time?", "Yes. Many practices offer in-house payment plans or third-party finance such as Humm, Afterpay and SuperCare. Some health funds also let you spread \"extras\" claims over the year. Compare interest-free periods and fees before committing — see our [dental payment plans guide](/blog/dental-payment-plans/) for tips."),
 ]
 
 CTA_TITLE = "Are you an Affordable Dentist provider in Australia?"
