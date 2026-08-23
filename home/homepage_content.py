@@ -80,16 +80,17 @@ FIND_DENTIST = {
 # ---- Services covered ----
 SERVICES = {
     "answer": (
-        "Fascinating Dentistry covers 42 specific dental services grouped into 8 distinct specialty "
+        "Fascinating Dentistry covers 44 specific dental services grouped into 8 distinct specialty "
         "categories. Patients access detailed clinical descriptions, procedure steps, and recovery "
         "timelines for every treatment. We organise these services into clear categories to help "
         "users navigate related procedures and understand their full treatment options."
     ),
     "hub": {"name": "full services hub", "href": "/services/"},
     "specialties": [
-        {"name": "General & Preventive Dentistry", "desc": "General dentistry maintains oral health and prevents disease progression. Patients access 6 core preventive services.", "items": [
+        {"name": "General & Preventive Dentistry", "desc": "General dentistry maintains oral health and prevents disease progression. Patients access 7 core preventive services.", "items": [
             {"name": "General Dentistry", "href": "/australia/general-dentistry/"},
-            {"name": "Check-up and Clean", "href": "/australia/check-up-and-clean/"},
+            {"name": "Dental Check-Up", "href": "/australia/dental-check-up/"},
+            {"name": "Teeth Cleaning", "href": "/australia/teeth-cleaning/"},
             {"name": "Dental X-Rays", "href": "/australia/dental-x-rays/"},
             {"name": "Fluoride Treatment", "href": "/australia/fluoride-treatment/"},
             {"name": "Dental Sealants", "href": "/australia/dental-sealants/"},

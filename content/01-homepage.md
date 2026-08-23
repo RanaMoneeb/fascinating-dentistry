@@ -53,7 +53,7 @@ Patients review curated lists of prominent practices in major metropolitan areas
 
 ### General & Preventive Dentistry
 
-General dentistry maintains oral health and prevents disease progression. Patients access 6 core preventive services: [General Dentistry](https://fascinatingdentistry.com/australia/general-dentistry/), [Check-up and Clean](https://fascinatingdentistry.com/australia/check-up-and-clean/), [Dental X-Rays](https://fascinatingdentistry.com/australia/dental-x-rays/), [Fluoride Treatment](https://fascinatingdentistry.com/australia/fluoride-treatment/), [Dental Sealants](https://fascinatingdentistry.com/australia/dental-sealants/), and [Oral Hygiene](https://fascinatingdentistry.com/australia/oral-hygiene/).
+General dentistry maintains oral health and prevents disease progression. Patients access 7 core preventive services: [General Dentistry](https://fascinatingdentistry.com/australia/general-dentistry/), [Dental Check-Up](https://fascinatingdentistry.com/australia/dental-check-up/), [Teeth Cleaning](https://fascinatingdentistry.com/australia/teeth-cleaning/), [Dental X-Rays](https://fascinatingdentistry.com/australia/dental-x-rays/), [Fluoride Treatment](https://fascinatingdentistry.com/australia/fluoride-treatment/), [Dental Sealants](https://fascinatingdentistry.com/australia/dental-sealants/), and [Oral Hygiene](https://fascinatingdentistry.com/australia/oral-hygiene/).
 
 ### Restorative Dentistry
 
@@ -213,7 +213,7 @@ Patients use financing options to manage treatment expenses. We cover 4 payment 
 
 ### How often should Australians see a dentist?
 
-**Most healthy adults should see a dentist every 6-12 months for a check-up and clean.** Children, people with gum disease, diabetics, smokers, and pregnant women require more frequent visits. Your dentist recommends a recall interval based on your individual oral health. Read our [Check-up and Clean](https://fascinatingdentistry.com/australia/check-up-and-clean/) and [Pregnancy Dental Care](https://fascinatingdentistry.com/blog/patient-demographics/pregnancy-dental-care/) guides for scheduling details.
+**Most healthy adults should see a dentist every 6-12 months for a check-up and clean.** Children, people with gum disease, diabetics, smokers, and pregnant women require more frequent visits. Your dentist recommends a recall interval based on your individual oral health. Read our [Dental Check-Up](https://fascinatingdentistry.com/australia/dental-check-up/) and [Teeth Cleaning](https://fascinatingdentistry.com/australia/teeth-cleaning/) guides, plus our [Pregnancy Dental Care](https://fascinatingdentistry.com/blog/patient-demographics/pregnancy-dental-care/) guide for scheduling details.
 
 ## What are the latest articles on Fascinating Dentistry?
 
