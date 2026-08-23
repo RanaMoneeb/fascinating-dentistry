@@ -4,7 +4,7 @@ import json
 
 META_TITLE = "Top 10 Affordable Dentists in Australia (2025)"
 META_DESC = "Compare the top 10 affordable dentists in Australia."
-H1 = "Top 10 Affordable Dentist in Australia — Reviewed and Ranked"
+H1 = "Top 10 Affordable Dentist in Australia"
 BADGE = "Top 10 — Reviewed & Ranked"
 
 INTRO = [
