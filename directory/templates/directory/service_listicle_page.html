@@ -92,7 +92,7 @@
                 <div><dt class="inline font-semibold text-slate-700">Phone:</dt> <dd class="inline text-slate-600 ml-1"><a href="tel:{{ p.phone|tel }}" class="text-brand-green hover:underline">{{ p.phone }}</a></dd></div>
                 <div class="sm:col-span-2"><dt class="inline font-semibold text-slate-700">Address:</dt> <dd class="inline text-slate-600 ml-1">{{ p.address }}</dd></div>
             </dl>
-            <div class="prose prose-sm prose-slate max-w-none mb-5 space-y-3">{% for para in p.body %}<p>{{ para }}</p>{% endfor %}</div>
+            <div class="prose prose-sm prose-slate max-w-none mb-5 space-y-3">{% for para in p.body %}<p>{{ para|live_links }}</p>{% endfor %}</div>
             <div class="flex flex-wrap gap-3">
                 {% if p.phone %}<a href="tel:{{ p.phone|tel }}" class="inline-flex items-center px-6 py-3 bg-brand-green text-white rounded-full font-bold hover:scale-105 transition-transform shadow-md">Call {{ p.phone }}</a>{% endif %}
                 {% if p.website %}<a href="{{ p.website }}" rel="nofollow" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-green to-brand-blue text-white rounded-full font-bold hover:scale-105 transition-transform shadow-md">Visit website</a>{% endif %}
@@ -119,7 +119,7 @@
                 <div><dt class="inline font-semibold text-slate-700">Phone:</dt> <dd class="inline text-slate-600 ml-1"><a href="tel:{{ p.phone|tel }}" class="text-brand-green hover:underline">{{ p.phone }}</a></dd></div>
                 <div><dt class="inline font-semibold text-slate-700">Website:</dt> <dd class="inline ml-1">{% if p.website %}<a href="{{ p.website }}" rel="nofollow" class="text-brand-green hover:underline">{{ p.website|domain }}</a>{% else %}<span class="text-slate-500">Contact the practice</span>{% endif %}</dd></div>
             </dl>
-            <div class="prose prose-sm prose-slate max-w-none space-y-2">{% for para in p.body %}<p>{{ para }}</p>{% endfor %}</div>
+            <div class="prose prose-sm prose-slate max-w-none space-y-2">{% for para in p.body %}<p>{{ para|live_links }}</p>{% endfor %}</div>
         </article>
         {% endif %}{% endfor %}
     </div></div>

@@ -13,9 +13,10 @@ INTRO = [
     'Positions 1 to 3 are paid placements with do-follow links. Positions 4 to 10 are editorial selections with no-follow links. Browse our complete directory of <a href="/australia/">all dental services across Australia</a>. Read <a href="/methodology/">our methodology</a> and our <a href="/disclosures/">disclosures policy</a> for full transparency.',
 ]
 
-WHEN_HEADING = "When do you need it?"
+WHEN_HEADING = "When Should You Consider Corrective Jaw Surgery in Australia?"
 WHEN = [
-    "When placeholder.",
+    "You may need corrective jaw surgery if you have any of the following functional issues:",
+    "A specialist oral and maxillofacial surgeon can confirm whether you are a candidate using X-rays, 3D scans, orthodontic records, and airway analysis. Most patients are referred by an orthodontist or general dentist. If you need a professional to start with, browse the <a href=\"/australia/dentists/\">Australian dentist directory</a> or read about <a href=\"/australia/orthodontics/\">orthodontic treatment</a>.",
 ]
 
 WHEN_ALERT = "If you have severe pain, uncontrolled bleeding, or facial swelling that affects breathing or vision, call 000 or go to the nearest hospital emergency department immediately."
