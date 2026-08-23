@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is an electronic apex locator painful for the patient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The device uses an extremely low electrical current, typically below 10 microamperes, that the patient cannot feel. The lip clip rests gently inside the lip, and the file clip attaches to the endodontic instrument. The procedure is painless, and the patient receives local anaesthesia before any endodontic work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the apex locator replace dental X-rays during a root canal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The apex locator reduces the number of radiographs required but does not eliminate them entirely. Dentists use the device to determine the working length electronically and then take one confirmatory radiograph to verify the measurement. The initial diagnostic radiograph is still needed to assess the tooth anatomy and identify the number of canal roots."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are electronic apex locators safe for patients with pacemakers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The electrical current used by apex locators is extremely low and there are no confirmed cases of pacemaker interference in the dental literature. However, dentists consult the patient's cardiologist as a precaution before using the device. Alternative methods, such as paper point measurement or radiograph-only determination, are available for patients where caution is advised."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate are modern electronic apex locators?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Modern third-generation and fourth-generation apex locators achieve accuracy rates of 82 to 96 per cent within a tolerance of plus or minus 0.5 millimetres. Clinical studies report correlation coefficients above 0.94 between electronic and radiographic measurements. The highest accuracy comes from combining the apex locator with a confirmatory radiograph."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there an extra cost for using an apex locator during root canal treatment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The apex locator is standard equipment in modern dental practices and is included in the overall cost of root canal treatment. The dentist does not charge a separate fee for using the device. The technology is considered part of the standard of care for endodontic procedures in Australia.\n\nThis article provides general information regarding electronic apex locators and their role in endodontic treatment. The content undergoes review by an AHPRA-registered dentist prior to publication to ensure clinical accuracy. We cite peer-reviewed data from the Journal of Endodontics, PubMed, and Cureus to support our claims. Read our methodology to learn how we develop and verify our dental health resources. If you require treatment for an infected tooth, contact our clinic to schedule an appointment for root canal therapy."
+      }
+    }
+  ]
+}
