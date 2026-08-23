@@ -35,12 +35,30 @@ def _live_relative_paths():
 
 
 def _relative(href):
-    path = href.split("?")[0].split("#")[0].strip("/")
+    """Extract the relative path (with trailing slash) from a link href.
+    Handles both relative (/australia/x/) and absolute (https://www.fascinatingdentistry.com/australia/x/) URLs."""
+    from urllib.parse import urlparse
+    if href.startswith(("http://", "https://")):
+        path = urlparse(href).path
+    else:
+        path = href
+    path = path.split("?")[0].split("#")[0].strip("/")
     return (path + "/") if path else ""
 
 
 def _is_external(href):
-    return href.startswith(("http://", "https://", "mailto:", "tel:", "#"))
+    """True if href is truly external. Absolute URLs on our own domain
+    (https://www.fascinatingdentistry.com/...) count as INTERNAL so the
+    smart-link system can gray them when the target page is not live yet."""
+    if href.startswith(("mailto:", "tel:", "#")):
+        return True
+    if href.startswith(("http://", "https://")):
+        from urllib.parse import urlparse
+        host = urlparse(href).netloc.lower()
+        if host in ("fascinatingdentistry.com", "www.fascinatingdentistry.com"):
+            return False  # own domain -> internal
+        return True
+    return False
 
 
 def process_body(html):
