@@ -38,7 +38,7 @@ TOP10 = [
 
 COST_HEADING = "Dental X-Ray Costs in Australia"
 COST = [
-    "Fees vary by state, suburb and practice tier. The figures below are indicative private-practice prices for uninsured patients. The ADA state branch fee guides inform the ranges. Always ask for a written itemised quote before any X-ray is taken. A standard <a href=\"/australia/dental-check-ups/\">dental check-up</a> that includes X-rays often costs between $120 and $250.",
+    "Fees vary by state, suburb and practice tier. The figures below are indicative private-practice prices for uninsured patients. The ADA state branch fee guides inform the ranges. Always ask for a written itemised quote before any X-ray is taken. A standard <a href=\"/australia/dental-check-up/\">dental check-up</a> that includes X-rays often costs between $120 and $250.",
     "Medicare does not cover dental X-rays in private practice. Most private health extras funds cover between 60% and 100% of diagnostic imaging, depending on your level of cover and waiting periods. Eligible children aged 2–17 can have X-rays covered under the <a href=\"/blog/government/child-dental-benefits-schedule-australia/\">Child Dental Benefits Schedule</a> (cap approximately $1,026 per child over two consecutive calendar years — verify current rate on Services Australia). Many practices claim CDBS at the chair.",
 ]
 COST_PRICES = [
